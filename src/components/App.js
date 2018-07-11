@@ -21,7 +21,7 @@ class App extends Component {
           <Route exact path = '/homophones/:homophone' render={props => (<PracticePage />)}/>
           <Route exact path = '/freestyle' render={props => (<CategoriesPage />)}/>
           <Route exact path = '/allwords' render={props => (<CategoriesPage />)}/>  
-          <Route component={<NoMatchPage/>}/>
+          <Route component={NoMatchPage}/>
       </Switch>
       </React.Fragment>
       </BrowserRouter>  
