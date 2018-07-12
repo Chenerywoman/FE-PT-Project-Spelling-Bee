@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import WordBox from './WordBox'
-
-const ContentBox = (words) => {
+const ContentBox = ({description}) => {
 return (
-    <div> <WordBox /></div>
+    <p> {description}</p>
 )
 }
 
-export default ContentBox;
+export default ContentBox
