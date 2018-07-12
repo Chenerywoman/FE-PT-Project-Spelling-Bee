@@ -19,7 +19,6 @@ class CategoriesPage extends Component {
     fetchCategory = (category) => {
         return getCategory(category)
         .then(category => {
-            console.log('category in fetchCategory', category)
             this.setState({
                 category: category.category,
                 description: category.description,
@@ -27,7 +26,7 @@ class CategoriesPage extends Component {
                 loading: false
             })
         })
-        .catch(error => {
+        .catch(() => {
             this.props.history.push('/404');
         });
     }
