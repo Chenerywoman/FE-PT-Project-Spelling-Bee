@@ -10,5 +10,5 @@ category = category.toLowerCase()
         if (res.status === 404) throw {status: res.status}
         else return res.json()
     })
-    .then(res => res[category])
+    .then(res => res[category][0])
 }
