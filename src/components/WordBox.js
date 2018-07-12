@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const WordBox = (word) => {
+const WordBox = ({letter}) => {
+    console.log('letter in wordbox', letter)
 return (
-     <p>WordBox</p>
+    <button>{letter}</button>
 )
 }
 
