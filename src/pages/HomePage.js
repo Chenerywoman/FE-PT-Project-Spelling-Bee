@@ -16,6 +16,9 @@ class HomePage extends Component {
     .then(({years}) => {
       this.setState({years, loading: false})
     })
+    .catch(error => {
+      this.props.history.push('/404');
+    });
   }
 
   render() {
@@ -28,7 +31,7 @@ class HomePage extends Component {
     :
     <React.Fragment>
     <ContentBox/>
-    <List items={this.state.years}/>
+    <List items={this.state.years} page='home'/>
     </React.Fragment>
    }
    </React.Fragment>
