@@ -1,13 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import WordBox from './WordBox';
 
-const List = ({ letters, category }) => {
+const List = ({ items }) => {
 
   return (
     <div>
-      {letters.map(letter => <WordBox key={letter} letter={letter} />)}
+      {items.map(item => <WordBox key={item._id} item={item} />)}
     </div>
   )
 }
