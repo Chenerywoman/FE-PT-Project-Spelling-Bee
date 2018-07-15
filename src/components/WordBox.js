@@ -2,11 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
-const WordBox = ({item, category}) => {
+const WordBox = ({item, page, year}) => {
+    console.log('item', item )
 return (
     <React.Fragment>
-    { !category ? 
-   <Link to={`/year${item.year}`}><button>{item.year}</button></Link> 
+    { page === 'home' ? <Link to={`/year${item.year}`}><button>{item.year}</button></Link> :
+
+    page === 'year' ? <Link to={`/year${year}/${item.name}`}><button>{item.name}</button></Link>
    : 
    <div></div>
     }
