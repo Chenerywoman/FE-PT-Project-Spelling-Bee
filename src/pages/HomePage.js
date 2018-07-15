@@ -14,7 +14,6 @@ class HomePage extends Component {
   componentDidMount () {
     return findYears()
     .then(({years}) => {
-      console.log('years', years)
       this.setState({years, loading: false})
     })
   }
