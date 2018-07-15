@@ -7,7 +7,7 @@ const List = ({ items, year, page}) => {
 console.log('items in List', items)
   return (
     <div>
-      {items.map(item => <WordBox key={item._id} item={item}  page={page}/>)}
+      {items.map(item => <WordBox key={item._id} item={item}  page={page} year={year}/>)}
     </div>
   )
 }
