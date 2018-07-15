@@ -1,27 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Link from 'react-router-dom';
-import {BeeLogo100px, BeeLogo250px, BeeLogo500px, BeeLogoLarge, BeeLogoLargeBordered} from '../logos';
-import {ContentBox, List} from '../components';
+import { BeeLogoLarge } from '../logos';
+import { ContentBox, List } from '../components';
 import '../styling/pages/HomePage.css';
 
-const HomePage = props => {
+class HomePage extends Component {
+
+  state = {
+    years: [],
+    loading: true
+  }
+
+  render() {
     return (
       <React.Fragment>
-        <img src={BeeLogoLarge} id="BeeLogoLarge" className="bee-logo" alt="BeeLogoLarge" />
-        <div className="wrapper">
-        <header className="main-head"><h1>Welcome to Spelling Bee!</h1></header>
-        <ContentBox className="content"/>
-        <List className="list"/>
-
-        
-
-
-
-
-        </div>
+      <header><h1>Welcome to Spelling Bee!</h1></header>
+      <img src={BeeLogoLarge} id="BeeLogoLarge" className="bee-logo" alt="BeeLogoLarge" />
+   {
+      this.state.loading ?   <p> Loading...</p>
+    :
+    <p>page here</p>
+   }
    </React.Fragment>
-    );
+      )
+
+  }
 
 }
+
 
 export default HomePage;

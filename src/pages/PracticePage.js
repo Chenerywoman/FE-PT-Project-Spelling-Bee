@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'react-router-dom';
-import {BeeLogo100px, BeeLogo250px, BeeLogo500px, BeeLogoLarge, BeeLogoLargeBordered} from '../logos';
+import {BeeLogoLarge} from '../logos';
 import '../styling/pages/PracticePage.css'
 
 const PracticePage = props => {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Link from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {BeeLogo100px, BeeLogo250px, BeeLogo500px, BeeLogoLarge, BeeLogoLargeBordered} from '../logos';
+import { BeeLogoLarge} from '../logos';
 import {ContentBox, List} from '../components';
 import '../styling/pages/CategoriesPage.css';
 import {getCategory} from '../dataFunctions/api'
