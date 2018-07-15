@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Link from 'react-router-dom';
 import { BeeLogoLarge } from '../logos';
 import { ContentBox, List } from '../components';
+import {findYears} from '../dataFunctions/api'
 import '../styling/pages/HomePage.css';
 
 class HomePage extends Component {
@@ -9,6 +9,14 @@ class HomePage extends Component {
   state = {
     years: [],
     loading: true
+  }
+
+  componentDidMount () {
+    return findYears()
+    .then(({years}) => {
+      console.log('years', years)
+      this.setState({years, loading: false})
+    })
   }
 
   render() {
@@ -19,7 +27,10 @@ class HomePage extends Component {
    {
       this.state.loading ?   <p> Loading...</p>
     :
-    <p>page here</p>
+    <React.Fragment>
+    <ContentBox/>
+    <List items={this.state.years}/>
+    </React.Fragment>
    }
    </React.Fragment>
       )
