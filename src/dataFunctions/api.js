@@ -11,6 +11,15 @@ exports.findYears = () => {
     .then(res =>  res)
 }
 
+exports.findCategoriesByYear  = (year) => {
+    const url = `${API_URL}/categories?year=${year}`
+    return fetch(url)
+    .then(res => {
+        if (res.status === 404) throw new Error(res.statusText)
+        else return res.json()
+    })
+}
+
 exports.getCategory = (category) => {
 category = category.toLowerCase()
     const url = `${API_URL}/${category}`
