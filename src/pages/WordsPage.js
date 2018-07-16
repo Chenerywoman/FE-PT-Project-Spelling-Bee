@@ -29,7 +29,6 @@ class WordsPage extends Component {
     }
 
     componentDidMount() {
-        console.log('in component did mount words page')
         const category = this.props.category;
         this.getCategory(category)
     }
@@ -46,7 +45,6 @@ class WordsPage extends Component {
     // }
 
     render() {
-        console.log('this.state.type.years', this.state.type.years, 'this.props.match.params.year', this.props.match.params.year)
         return (
             <React.Fragment>
                 {!/^[1-6]$/.test(this.props.match.params.year) ? < Redirect to='404' />
