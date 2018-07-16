@@ -60,7 +60,7 @@ class WordsPage extends Component {
                             :
                             <React.Fragment>
                             <ContentBox className="content" description={this.state.type.description} />
-                            <List className="list" items={this.state.list} page='words' year={this.state.year} category={this.props.category} />
+                            <List className="list" items={this.state.list} page='words' year={this.props.match.params.year} category={this.props.category} />
                             </React.Fragment> 
                             }
                         </React.Fragment>
