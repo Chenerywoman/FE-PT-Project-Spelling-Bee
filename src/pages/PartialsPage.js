@@ -24,8 +24,7 @@ class PartialsPage extends Component {
     }
 
     componentDidMount() {
-        const category = this.props.category;
-        this.getCategory(category)
+        this.getCategory(this.props.category)
     }
 
     // componentDidUpdate(prevProps, prevState) {
