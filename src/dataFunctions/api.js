@@ -20,8 +20,7 @@ exports.findCategoriesByYear = (year) => {
 }
 
 exports.findCategory = (category) => {
-    category = category.toLowerCase()
-    const url = `${API_URL}/categories/${category}`
+    const url = `${API_URL}/categories/${category.toLowerCase()}`
     return fetch(url)
         .then(res => {
             if (res.status === 404) throw new Error(res.statusText)
@@ -31,9 +30,7 @@ exports.findCategory = (category) => {
 }
 
 exports.findList = (category) => {
-    category = category.toLowerCase()
-    const url = `${API_URL}/${category}`
-    console.log('url', url)
+    const url = `${API_URL}/${category.toLowerCase()}`
     return fetch(url)
         .then(res => {
             if (res.status === 404) throw new Error(res.statusText)
@@ -41,3 +38,15 @@ exports.findList = (category) => {
         })
         .then(res => res)
 }
+
+exports.findWords = (category, letters) => {
+    const label = category.endsWith('es') ? category.match(/\w+(?=es)/)[0].toLowerCase() : category.match(/\w+(?=s)/)[0].toLowerCase();
+    const url = `${API_URL}/${category.toLowerCase()}?${label}=${letters}`
+    return fetch(url)
+    .then(res => {
+        console.log('res in ')
+        if (res.status === 404) throw new Error(res.statusText)
+        else return res.json()
+    })
+    .then(({words}) =>  words)
+} 
