@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
-// import Link from 'react-router-dom';
+import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {BeeLogoLarge} from '../logos';
-import {ContentBox, List} from '../components';
+import { BeeLogoLarge } from '../logos';
+import { ContentBox, List } from '../components';
 import '../styling/pages/WordsPage.css';
-import {findCategoriesByYear,findCategory, findList} from '../dataFunctions/api';
+import { findCategory, findList } from '../dataFunctions/api';
+import { notYear } from '../dataFunctions/helpers';
 
 class WordsPage extends Component {
 
@@ -14,20 +15,17 @@ class WordsPage extends Component {
         list: [],
         year: this.props.match.params.year,
         loading: true
-        
+
     }
 
     getCategory = (type) => {
-        // return findCategoriesByYear(this.props.match.params.year)
-        // .then(({ categories }) => this.setState({ categories }))
         return findCategory(type)
-        .then(type => {
-            console.log('type in wordspage', type)
-            this.setState({type})
-            return findList(this.state.type.name)
-        })
-        .then(res => this.setState({list: res[this.state.type.name], loading: false}))
-        .catch(err => this.props.history.push('/404'))
+            .then(type => {
+                this.setState({ type })
+                return findList(this.state.type.name)
+            })
+            .then(res => this.setState({ list: res[this.state.type.name], loading: false }))
+            .catch(err => this.props.history.push('/404'))
     }
 
     componentDidMount() {
@@ -36,33 +34,38 @@ class WordsPage extends Component {
         this.getCategory(category)
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log('in component did update words page')
-        const currCategory = this.props.category
-        const prevCategory = prevProps.category
-// add for change in year in params 
-        if (currCategory !== prevCategory) {
-            this.setState({loading: true})
-            this.fetchCategory(currCategory)
-        }
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     console.log('in component did update words page')
+    //     const currCategory = this.props.category
+    //     const prevCategory = prevProps.category
+    //     // add for change in year in params 
+    //     if (currCategory !== prevCategory) {
+    //         this.setState({ loading: true })
+    //         this.fetchCategory(currCategory)
+    //     }
+    // }
 
-
-
-    render () {
-console.log ('this.props.category in wordspage', this.props.category)
+    render() {
+        console.log('this.state.type.years', this.state.type.years, 'this.props.match.params.year', this.props.match.params.year)
         return (
-        <React.Fragment>
-        {this.state.loading ? <p>loading...</p>  
-        :
-        <React.Fragment>
-  <h1>Year {this.state.year} {this.props.category}</h1>
-      <img src={BeeLogoLarge} id="BeeLogoLarge" className="bee-logo" alt="BeeLogoLarge" />
-      <ContentBox className="content" description={this.state.type.description}/>
-      <List className="list" items={this.state.list} page='words' year={this.state.year} category={this.props.category}/>
-      </React.Fragment>
-  }
- </React.Fragment>
+            <React.Fragment>
+                {!/^[1-6]$/.test(this.props.match.params.year) ? < Redirect to='404' />
+                    : this.state.loading ? <p>loading...</p>
+                        :
+                        <React.Fragment>
+                            <header><h1>Year {this.state.year} {this.props.category}</h1></header>
+                            <img src={BeeLogoLarge} id="BeeLogoLarge" className="bee-logo" alt="BeeLogoLarge" />
+                            {notYear(this.state.type.years, this.props.match.params.year) ? 
+                            <p>No {this.props.category.toLowerCase()} for year {this.props.match.params.year}. </p>
+                            :
+                            <React.Fragment>
+                            <ContentBox className="content" description={this.state.type.description} />
+                            <List className="list" items={this.state.list} page='words' year={this.state.year} category={this.props.category} />
+                            </React.Fragment> 
+                            }
+                        </React.Fragment>
+                }
+            </React.Fragment>
         )
 
     }
