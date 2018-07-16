@@ -20,7 +20,7 @@ exports.findCategoriesByYear  = (year) => {
     })
 }
 
-exports.getCategory = (category) => {
+exports.findCategory = (category) => {
 category = category.toLowerCase()
     const url = `${API_URL}/categories/${category}`
     return fetch(url)
@@ -31,15 +31,14 @@ category = category.toLowerCase()
     .then(res => res.category[0])
 }
 
-exports.getList = (category) => {
+exports.findList = (category) => {
     category = category.toLowerCase()
     const url = `${API_URL}/${category}`
+    console.log('url', url)
     return fetch(url)
     .then(res => {
         if (res.status === 404) throw new Error(res.statusText)
         else return res.json()
     })
     .then(res => res)
-
-
 }
