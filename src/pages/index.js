@@ -1,7 +1,8 @@
 import HomePage from './HomePage';
 import YearPage from './YearPage';
-import CategoriesPage from './CategoriesPage';
+import PartialsPage from './PartialsPage';
 import PracticePage from'./PracticePage';
 import NoMatchPage from './NoMatchPage';
+import WordsPage from './WordsPage';
 
-export {HomePage, YearPage, CategoriesPage, PracticePage, NoMatchPage}
+export {HomePage, YearPage, PartialsPage, PracticePage, NoMatchPage, WordsPage}
