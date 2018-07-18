@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link, { Redirect } from 'react-router-dom';
 import { BeeLogoLarge } from '../logos';
 import '../styling/pages/PracticePage.css';
-import { List } from '../components';
+import { ContentBox, List } from '../components';
 import { findWords } from '../dataFunctions/api';
 import { notYear } from '../dataFunctions/helpers';
 
@@ -14,7 +14,11 @@ class PracticePage extends Component {
         words: [],
         wordsIndex: 0,
         loading: true,
-        voices: false
+        voices: false,
+        showForm: false,
+        spelling: '',
+        correct: true,
+        spellings: [] 
 
     }
 
@@ -26,26 +30,47 @@ class PracticePage extends Component {
             .catch(err => this.props.history.push('/404'))
     }
 
+    handlePracticeClick = () => {
+        this.setState({ showForm: true })
+    }
 
-    handleSpellClick = () => {
+    handleSpellSlowClick = () => {
         const voices = window.speechSynthesis.getVoices()
         let utterance = new SpeechSynthesisUtterance(this.state.words[this.state.wordsIndex].word);
         utterance.voice = voices.find(voice => voice.name === 'Fiona');
         utterance.rate = 0.5;
         window.speechSynthesis.speak(utterance);
-        this.setState({ wordsIndex: this.state.wordsIndex + 1 })
+    }
+
+    handleSpellFastClick = () => {
+        const voices = window.speechSynthesis.getVoices()
+        let utterance = new SpeechSynthesisUtterance(this.state.words[this.state.wordsIndex].word);
+        utterance.voice = voices.find(voice => voice.name === 'Fiona');
+        utterance.rate = 1;
+        window.speechSynthesis.speak(utterance);
+    }
+
+    handleChange = (event) => {
+        this.setState({ spelling: event.target.value })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        if (this.state.spelling === this.state.words[this.state.wordsIndex].word) {this.setState({spellings: [...this.state.spellings, {spelling: this.state.spelling, correctSpelling: ''}]})}
+        else {this.setState({spellings: [...this.state.spellings, {spelling: this.state.spelling, correctSpelling: this.state.words[this.state.wordsIndex].word}]})}
+        this.setState({ wordsIndex: this.state.wordsIndex + 1, spelling: '' })
     }
 
     voicesLoaded = () => {
         this.setState({ voices: true })
     }
 
-
     componentDidMount() {
         this.getWords(this.props.category, this.props.match.params.letters)
     }
 
     render() {
+        console.log('this.state.spellings', this.state.spellings)
         window.speechSynthesis.onvoiceschanged = this.voicesLoaded
         return this.state.voices && (
             <React.Fragment>
@@ -59,10 +84,20 @@ class PracticePage extends Component {
                                 <p>No {this.state.label} {this.props.match.params.letters} for year {this.props.match.params.year}.</p>
                                 :
                                 <React.Fragment>
-                                    {/* <ContentBox className="content" description={this.state.partial.description} /> */}
-                                    <List className="list" items={this.state.words} page='practice' year={this.props.match.params.year} category={this.props.category} />
-                                    <button onClick={this.handleSpellClick}>Let's Spell!</button>
-
+                                    <ContentBox className="content" description={`${this.state.label}: ${this.props.match.params.letters}`} />
+                                    <button onClick={this.handleSpellSlowClick} style={{ display: this.state.showForm ? 'inline' : 'none' }}>Play word slowly</button>
+                                    <button onClick={this.handleSpellFastClick} style={{ display: this.state.showForm ? 'inline' : 'none' }}>Play word fast</button>
+                                    <List className="list" items={this.state.words} page='practice' year={this.props.match.params.year} category={this.props.category}
+                                        style={{ display: this.state.showForm ? 'none' : 'inline' }} />
+                                    <button onClick={this.handlePracticeClick} style={{ display: this.state.showForm ? 'none' : 'inline' }}> Let's Practice</button>
+                                    <form onSubmit={this.handleSubmit} style={{ display: this.state.showForm ? 'inline' : 'none' }} >
+                                        <label>
+                                            Your spelling: <input type="text" value={this.state.spelling} onChange={this.handleChange} />
+                                        </label>
+                                        <input type="submit" value="Check your spelling" />
+                                    </form>
+                                    <List className="list" items={this.state.spellings} page='answers' year={this.props.match.params.year} category={this.props.category}
+                                        style={{ display: this.state.showForm ? 'block' : 'none' }} />
                                 </React.Fragment>
                             }
                         </React.Fragment>
