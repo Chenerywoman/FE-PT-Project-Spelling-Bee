@@ -44,7 +44,6 @@ exports.findWords = (category, letters) => {
     const url = `${API_URL}/${category.toLowerCase()}?${label}=${letters}`
     return fetch(url)
     .then(res => {
-        console.log('res in ')
         if (res.status === 404) throw new Error(res.statusText)
         else return res.json()
     })
