@@ -10,28 +10,44 @@ class PracticePage extends Component {
 
     state = {
 
-        words: [],
         label: this.props.category.endsWith('es') ? this.props.category.match(/\w+(?=es)/)[0].toLowerCase() : this.props.category.match(/\w+(?=s)/)[0].toLowerCase(),
-        loading: true
+        words: [],
+        wordsIndex: 0,
+        loading: true,
+        voices: false
 
     }
 
     getWords = (category, letters) => {
         return findWords(category, letters)
             .then(words => {
-                console.log('words', words)
                 this.setState({ words, loading: false })
             })
             .catch(err => this.props.history.push('/404'))
     }
+
+
+    handleSpellClick = () => {
+        const voices = window.speechSynthesis.getVoices()
+        let utterance = new SpeechSynthesisUtterance(this.state.words[this.state.wordsIndex].word);
+        utterance.voice = voices.find(voice => voice.name === 'Fiona');
+        utterance.rate = 0.5;
+        window.speechSynthesis.speak(utterance);
+        this.setState({ wordsIndex: this.state.wordsIndex + 1 })
+    }
+
+    voicesLoaded = () => {
+        this.setState({ voices: true })
+    }
+
 
     componentDidMount() {
         this.getWords(this.props.category, this.props.match.params.letters)
     }
 
     render() {
-        console.log('this.state.words', this.state.words)
-        return (
+        window.speechSynthesis.onvoiceschanged = this.voicesLoaded
+        return this.state.voices && (
             <React.Fragment>
                 {!/^[1-6]$/.test(this.props.match.params.year) ? < Redirect to='/404' />
                     : this.state.loading ? <p>loading...</p>
@@ -45,6 +61,8 @@ class PracticePage extends Component {
                                 <React.Fragment>
                                     {/* <ContentBox className="content" description={this.state.partial.description} /> */}
                                     <List className="list" items={this.state.words} page='practice' year={this.props.match.params.year} category={this.props.category} />
+                                    <button onClick={this.handleSpellClick}>Let's Spell!</button>
+
                                 </React.Fragment>
                             }
                         </React.Fragment>
