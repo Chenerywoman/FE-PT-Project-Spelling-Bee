@@ -3,11 +3,11 @@ import React from 'react';
 
 import WordBox from './WordBox';
 
-const List = ({ items, year, page, category}) => {
+const List = ({ items, year, page, category, style}) => {
 
   return (
     <div>
-      {items.map(item => <WordBox key={item._id} item={item}  page={page} year={year} category={category}/>)}
+      {items.map(item => <WordBox key={item._id} item={item}  page={page} year={year} category={category} style={style} />)}
     </div>
   )
 }
