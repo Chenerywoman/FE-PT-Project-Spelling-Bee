@@ -17,3 +17,15 @@ export const chunkArray = (array, chunk) => {
     
     return results;
 }
+
+export const checkSpelling = (spelling, correctSpelling) => {
+
+    const spellingArray = spelling.split('');
+    const correctSpellingArray = correctSpelling.split('');
+
+    return spellingArray.map((letter, ind) => {
+        if (letter !== correctSpellingArray[ind]) { return {letter: letter, correct: false } }
+        else return {letter: letter, correct: true} ;
+    })
+
+}
