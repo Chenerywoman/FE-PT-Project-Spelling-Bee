@@ -28,11 +28,9 @@ class SpellingBox extends Component {
   }
 
   updateScore = (word) => {
-    if (word.every(char => char.correct)) {
-      const newTotal = this.state.total + 1
-      this.setState({total: newTotal})
+    const newTotal = this.state.total + 1
+    return  word.every(char => char.correct) ? this.setState({total: newTotal}) : this.setState({total: this.state.total})
     }
-  }
 
   componentDidMount () {
     
@@ -49,7 +47,7 @@ class SpellingBox extends Component {
   }
 
   render() {
-
+    console.log('this.props.correctSpellings.length', this.props.correctSpellings.length)
     return <React.Fragment> 
       {this.props.spellings.map((word, ind) => {
         return <p> <span>{this.makeWord(word)}</span> <span>{this.checkWord(word) ? '' : this.props.correctSpellings[ind].word}</span> </p>
