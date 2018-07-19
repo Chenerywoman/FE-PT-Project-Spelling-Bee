@@ -16,9 +16,7 @@ const WordBox = ({ item, page, year, category, style }) => {
                             : 
                             page === 'practice' ? <span style={style} > {item.word} </span> 
                             :
-                            <p style={style} >{item.spelling} {item.correctSpelling}</p>
-
-
+                            <div> </div>
             }
         </React.Fragment>
     )
