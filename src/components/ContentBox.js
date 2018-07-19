@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import '../styling/components/ContentBox.css'
+// import PropTypes from 'prop-types';
 
-const ContentBox = ({description}) => {
+const ContentBox = ({description, page}) => {
 return (
-    <p> {description}</p>
+    <p id={page}> {description}</p>
 )
 }
 
