@@ -1,3 +1,4 @@
+import * as helpers from './helpers';
 const API_URL = 'http://localhost:3000/api';
 
 export const findYears = () => {
@@ -47,5 +48,9 @@ export const findWords = (category, letters) => {
         if (res.status === 404) throw new Error(res.statusText)
         else return res.json()
     })
-    .then(({words}) =>  words)
+    .then(({words}) =>  {  
+    console.log('words', words)
+        const wordsToChunk = [...words]
+    return helpers.chunkArray(wordsToChunk, 5)
+})
 } 
