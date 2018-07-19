@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:3000/api';
 
-exports.findYears = () => {
+export const findYears = () => {
     const url = `${API_URL}/years`
     return fetch(url)
         .then(res => {
@@ -10,7 +10,7 @@ exports.findYears = () => {
         .then(res => res)
 }
 
-exports.findCategoriesByYear = (year) => {
+export const findCategoriesByYear = (year) => {
     const url = `${API_URL}/categories?year=${year}`
     return fetch(url)
         .then(res => {
@@ -19,7 +19,7 @@ exports.findCategoriesByYear = (year) => {
         })
 }
 
-exports.findCategory = (category) => {
+export const findCategory = (category) => {
     const url = `${API_URL}/categories/${category.toLowerCase()}`
     return fetch(url)
         .then(res => {
@@ -29,7 +29,7 @@ exports.findCategory = (category) => {
         .then(res => res.category[0])
 }
 
-exports.findList = (category) => {
+export const findList = (category) => {
     const url = `${API_URL}/${category.toLowerCase()}`
     return fetch(url)
         .then(res => {
@@ -39,7 +39,7 @@ exports.findList = (category) => {
         .then(res => res)
 }
 
-exports.findWords = (category, letters) => {
+export const findWords = (category, letters) => {
     const label = category.endsWith('es') ? category.match(/\w+(?=es)/)[0].toLowerCase() : category.match(/\w+(?=s)/)[0].toLowerCase();
     const url = `${API_URL}/${category.toLowerCase()}?${label}=${letters}`
     return fetch(url)
