@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Link, { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { BeeLogoLarge } from '../logos';
 import '../styling/pages/PracticePage.css';
-import { ContentBox, List } from '../components';
+import { ContentBox, List, SpellingBox } from '../components';
 import { findWords } from '../dataFunctions/api';
-import { notYear, chunkArray } from '../dataFunctions/helpers';
+import { notYear, chunkArray, checkSpelling } from '../dataFunctions/helpers';
 
 class PracticePage extends Component {
 
@@ -52,7 +52,7 @@ class PracticePage extends Component {
     handleSpellClick = () => {
         const voices = window.speechSynthesis.getVoices()
         let utterance = new SpeechSynthesisUtterance(this.state.words[this.state.arrayIndex][this.state.wordsIndex].word);
-        utterance.voice = voices.find(voice => voice.name === 'Daniel');
+        utterance.voice = voices.find(voice => voice.name === 'Fiona');
         utterance.rate = 0.5;
         window.speechSynthesis.speak(utterance);
     }
@@ -63,9 +63,8 @@ class PracticePage extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.spelling === this.state.words[this.state.arrayIndex][this.state.wordsIndex].word) {this.setState({ spellings: [...this.state.spellings, { spelling: this.state.spelling, correctSpelling: '' }] }) }
-        else { this.setState({ spellings: [...this.state.spellings, { spelling: this.state.spelling, correctSpelling: this.state.words[this.state.arrayIndex][this.state.wordsIndex].word }] }) }
-        this.setState({ wordsIndex: this.state.wordsIndex + 1, spelling: '' })
+        const result = checkSpelling(this.state.spelling, this.state.words[this.state.arrayIndex][this.state.wordsIndex].word)
+        this.setState({ spellings: [...this.state.spellings, result], wordsIndex: this.state.wordsIndex + 1, spelling: '' }) 
     }
 
     handlePracticeAgain = () => {
@@ -84,6 +83,7 @@ class PracticePage extends Component {
     }
 
     render() {
+        console.log('this.state.spellings', this.state.spellings)
         return (
             <React.Fragment>
                 {!/^[1-6]$/.test(this.props.match.params.year) ? < Redirect to='/404' />
@@ -107,8 +107,7 @@ class PracticePage extends Component {
                                         </label>
                                         <input type="submit" value="Check your spelling" disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false} />
                                     </form>
-                                    <List className="list" items={this.state.spellings} page='answers' year={this.props.match.params.year} category={this.props.category}
-                                        style={{ display: this.state.showForm ? 'block' : 'none' }} />
+                            { this.state.spellings.length ? <SpellingBox spellings={this.state.spellings} correctSpellings={this.state.words[this.state.arrayIndex]} year={this.props.match.params.year} category={this.props.category} style={{ display: this.state.showForm ? 'block' : 'none' }} /> : <div></div> }
                                     <button onClick={this.handleNextWords} style={{ display: this.state.showForm && this.state.wordsIndex === this.state.words[this.state.arrayIndex].length && this.state.arrayIndex < this.state.words.length -1 ? 'inline' : 'none' }}
                                     disabled={this.state.words.length -1 === this.state.arrayIndex}> Next words</button>
                                     <button onClick={this.handlePreviousWords} style={{ display: this.state.showForm && this.state.wordsIndex === this.state.words[this.state.arrayIndex].length && this.state.arrayIndex > 0 ? 'inline' : 'none' }}
