@@ -97,10 +97,14 @@ class PracticePage extends Component {
                                 :
                                 <React.Fragment>
                                     <ContentBox className="content" description={`${this.state.label}: ${this.props.match.params.letters}`} />
+                                    
                                     <button onClick={this.handleSpellClick} style={{ display: this.state.showForm ? 'inline' : 'none' }} disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false}>Play word</button>
+                                    
                                     <List className="list" items={this.state.words} page='practice' year={this.props.match.params.year} category={this.props.category}
                                         style={{ display: this.state.showForm ? 'none' : 'inline' }} />
+                                    
                                     <button onClick={this.handlePracticeClick} style={{ display: this.state.showForm ? 'none' : 'inline' }}> Let's Practise</button>
+                                    
                                     <form onSubmit={this.handleSubmit} style={{ display: this.state.showForm ? 'inline' : 'none' }} >
                                         <label>
                                             Your spelling: <input type="text" value={this.state.spelling} onChange={this.handleChange} />
@@ -108,10 +112,13 @@ class PracticePage extends Component {
                                         <input type="submit" value="Check your spelling" disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false} />
                                     </form>
                             { this.state.spellings.length ? <SpellingBox spellings={this.state.spellings} correctSpellings={this.state.words[this.state.arrayIndex]} year={this.props.match.params.year} category={this.props.category} style={{ display: this.state.showForm ? 'block' : 'none' }} /> : <div></div> }
+                                    
                                     <button onClick={this.handleNextWords} style={{ display: this.state.showForm && this.state.wordsIndex === this.state.words[this.state.arrayIndex].length && this.state.arrayIndex < this.state.words.length -1 ? 'inline' : 'none' }}
                                     disabled={this.state.words.length -1 === this.state.arrayIndex}> Next words</button>
+                                    
                                     <button onClick={this.handlePreviousWords} style={{ display: this.state.showForm && this.state.wordsIndex === this.state.words[this.state.arrayIndex].length && this.state.arrayIndex > 0 ? 'inline' : 'none' }}
                                     disabled={this.state.arrayIndex === 0}> Previous words</button>
+                                    
                                     <button onClick={this.handlePracticeAgain} style={{ display: this.state.showForm && this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? 'inline' : 'none' }}> Practise again</button>
                                 </React.Fragment>
                             }
