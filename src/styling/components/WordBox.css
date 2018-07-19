@@ -1,0 +1,143 @@
+
+#year1 {
+    background-color: gold;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#year2 {
+    background-color: limegreen;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#year3 {
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#year4 {
+    background-color: mediumorchid;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#year5 {
+    background-color: deeppink;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#year6 {
+    background-color: crimson;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: black;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#prefixes {
+    background-color: darkblue;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+#suffixes {
+    background-color: blueviolet;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+#medials {
+    background-color: mediumvioletred;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+#homophones {
+    background-color: firebrick;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#freestyle {
+    background-color: darkorange;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#words {
+    background-color: goldenrod;
+    border: none;
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin: 4px 2px;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+
