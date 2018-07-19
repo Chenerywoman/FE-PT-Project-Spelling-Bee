@@ -48,9 +48,5 @@ export const findWords = (category, letters) => {
         if (res.status === 404) throw new Error(res.statusText)
         else return res.json()
     })
-    .then(({words}) =>  {  
-    console.log('words', words)
-        const wordsToChunk = [...words]
-    return helpers.chunkArray(wordsToChunk, 5)
-})
+    .then(({words}) => words)
 } 
