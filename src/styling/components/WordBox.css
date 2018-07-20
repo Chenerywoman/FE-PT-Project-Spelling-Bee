@@ -4,7 +4,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: black;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -16,7 +16,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: black;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -28,7 +28,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: black;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -40,7 +40,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: black;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -52,7 +52,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: black;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -64,7 +64,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: black;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -76,7 +76,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: white;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -87,7 +87,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: white;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -98,7 +98,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: white;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -109,7 +109,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: white;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -121,7 +121,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: white;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -133,7 +133,7 @@
     border: none;
     border-radius: 10%;
     padding: 16px 32px;
-    margin: 4px 2px;
+    margin: 1rem 1rem;
     color: white;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -147,7 +147,7 @@
     border: 1px solid black;
     border-radius: 10%;
     padding: 8px 16px;
-    margin: 1rem 1rem;
+    margin: 0.5rem 0.5rem;
     color: black;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
@@ -155,13 +155,11 @@
 }
 
 .words {
-    background-color: gold;
-    border: 1px solid black;
     border-radius: 10%;
     padding: 8px 16px;
-    margin: 0.5rem 0.5rem;
-    color: black;
-    font-size: 1rem;
+    margin: 0.15rem 0.15rem;
+    color: blue;
+    font-size: 1.25rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 
