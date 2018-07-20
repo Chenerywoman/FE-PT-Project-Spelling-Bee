@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import '../styling/components/SpellingBox.css';
 
-// spellings, correctSpellings, year, category, style
-
 class SpellingBox extends Component {
 
   state = {
@@ -47,7 +45,6 @@ class SpellingBox extends Component {
   }
 
   render() {
-    console.log('this.props.correctSpellings.length', this.props.correctSpellings.length)
     return <React.Fragment> 
       {this.props.spellings.map((word, ind) => {
         return <p> <span>{this.makeWord(word)}</span> <span>{this.checkWord(word) ? '' : this.props.correctSpellings[ind].word}</span> </p>
