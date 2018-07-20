@@ -107,7 +107,7 @@ class PracticePage extends Component {
                                     
                                     <form onSubmit={this.handleSubmit} style={{ display: this.state.showForm ? 'inline' : 'none' }} >
                                         <label>
-                                            Your spelling: <input type="text" value={this.state.spelling} onChange={this.handleChange} />
+                                            Your spelling: <input type="text" placeholder="spell here" value={this.state.spelling} onChange={this.handleChange} />
                                         </label>
                                         <input type="submit" value="Check your spelling" disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false} />
                                     </form>
