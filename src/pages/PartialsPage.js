@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { BeeLogoLarge } from '../logos';
 import { ContentBox, List } from '../components';
-import '../styling/pages/CategoriesPage.css';
+import '../styling/pages/PartialsPage.css';
 import { findList } from '../dataFunctions/api'
 import { notYear } from '../dataFunctions/helpers'
 
@@ -39,7 +39,7 @@ class PartialsPage extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div>
                 {!/^[1-6]$/.test(this.props.match.params.year) ? < Redirect to='404' />
                     : this.state.loading ? <p>loading...</p>
                         :
@@ -56,7 +56,7 @@ class PartialsPage extends Component {
                             }
                         </React.Fragment>
                 }
-            </React.Fragment>
+            </div>
         )
     }
 }
