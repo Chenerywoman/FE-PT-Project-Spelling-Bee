@@ -1,7 +1,16 @@
+
 #homepage {
     font-size: 1.5rem;
 }
 
 #yearpage {
     font-size: 1.5rem;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#partialspage {
+    font-size: 1.25rem;
+    margin-left: 10%;
+    margin-right: 10%;
 }
