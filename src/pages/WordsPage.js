@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { BeeLogoLarge } from '../logos';
-import { ContentBox, List } from '../components';
+import {Redirect, Link} from 'react-router-dom';
+// import PropTypes from 'prop-types';
+import { BeeLogo250px } from '../logos';
+import { ContentBox, List, NavBar } from '../components';
 import '../styling/pages/WordsPage.css';
 import { findCategory, findList } from '../dataFunctions/api';
 import { notYear } from '../dataFunctions/helpers';
@@ -33,16 +33,14 @@ class WordsPage extends Component {
         this.getCategory(category)
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     console.log('in component did update words page')
-    //     const currCategory = this.props.category
-    //     const prevCategory = prevProps.category
-    //     // add for change in year in params 
-    //     if (currCategory !== prevCategory) {
-    //         this.setState({ loading: true })
-    //         this.fetchCategory(currCategory)
-    //     }
-    // }
+    componentDidUpdate(prevProps, prevState) {
+        const currCategory = this.props.category
+        const prevCategory = prevProps.category
+        if (currCategory !== prevCategory) {
+            this.setState({ loading: true })
+            this.getCategory(currCategory)
+        }
+    }
 
     render() {
         return (
@@ -50,18 +48,19 @@ class WordsPage extends Component {
                 {!/^[1-6]$/.test(this.props.match.params.year) ? < Redirect to='404' />
                     : this.state.loading ? <p>loading...</p>
                         :
-                        <React.Fragment>
-                            <header><h1>Year {this.state.year} {this.props.category}</h1></header>
-                            <img src={BeeLogoLarge} id="BeeLogoLarge" className="bee-logo" alt="BeeLogoLarge" />
+                        <div id='wordspage_container'>
+                        <header> <NavBar page='words' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
+                            <h1>Year {this.state.year} {this.props.category}</h1></header>
+                            <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogo250px" /></Link>
                             {notYear(this.state.type.years, this.props.match.params.year) ? 
                             <p>No {this.props.category.toLowerCase()} for year {this.props.match.params.year}. </p>
                             :
                             <React.Fragment>
-                            <ContentBox className="content" description={this.state.type.description} />
+                            <ContentBox description={this.state.type.description} page='wordspage'/>
                             <List className="list" items={this.state.list} page='words' year={this.props.match.params.year} category={this.props.category} />
                             </React.Fragment> 
                             }
-                        </React.Fragment>
+                        </div>
                 }
             </React.Fragment>
         )
