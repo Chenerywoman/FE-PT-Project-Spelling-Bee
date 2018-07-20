@@ -51,8 +51,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <React.Fragment>
-    
+     <div id='homepage_container'>
           <h1>Welcome to Spelling Bee</h1>
         <img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogoLarge" />
         {
@@ -62,7 +61,7 @@ class HomePage extends Component {
             {!this.state.userlogged ? 
             <React.Fragment>
               <form onSubmit={this.handleSubmit} id='loginform'>
-                <input id='addName' placeholder='type your name here' type="text" value={this.state.value} onChange={this.handleChange} />
+                <input id='addName' placeholder='...your name' type="text" value={this.state.value} onChange={this.handleChange} size='12'/>
                 <span id={BeeLogo100pxtoresize}><input type="image" name="submit" src={BeeLogo100pxtoresize} alt="Submit" /></span>
               </form>
               </React.Fragment>
@@ -74,9 +73,10 @@ class HomePage extends Component {
               <List items={this.state.years} page='home' />
             </React.Fragment>
             }
-            </React.Fragment>
+             </React.Fragment>
         }
-      </React.Fragment>
+    
+      </div>
     )
 
   }
