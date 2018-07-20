@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styling/components/List.css'
 // import PropTypes from 'prop-types';
 
 import WordBox from './WordBox';
@@ -6,7 +7,7 @@ import WordBox from './WordBox';
 const List = ({ items, year, page, category, style}) => {
 
   return (
-    <div>
+    <div className='flex-container'>
       {items.map(item => <WordBox key={item._id} item={item}  page={page} year={year} category={category} style={style} />)}
     </div>
   )
