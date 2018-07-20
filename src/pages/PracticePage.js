@@ -90,26 +90,31 @@ class PracticePage extends Component {
                         :
                         <div id='practicepage_container'>
                             <header><NavBar page='practice' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
-                                <h1>Time to Practise!</h1></header>
+                                <h1>Practise <span id='practiseHighlight'>{`${this.state.label}:${this.props.match.params.letters}`} </span></h1></header>
                             <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogo250px" /></Link>
                             {notYear(this.state.years, this.props.match.params.year) ?
                                 <p>No {this.state.label} {this.props.match.params.letters} for year {this.props.match.params.year}.</p>
                                 :
                                 <React.Fragment>
-                                    <ContentBox className="content" description={`${this.state.label}: ${this.props.match.params.letters}`} />
+                                    { this.state.showForm ? <div></div> : 
+                                    <ContentBox page='practicepage' 
+                                    description={`${this.props.username}, practise these words with the ${this.state.label} '${this.props.match.params.letters}' 5 words at a time.`} 
+                                    /> }
                                     
-                                    <button onClick={this.handleSpellClick} style={{ display: this.state.showForm ? 'inline' : 'none' }} disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false}>Play word</button>
-                                    
+                                    <button className='practisebutton' onClick={this.handlePracticeClick} style={{ display: this.state.showForm ? 'none' : 'inline' }}> Let's Go!</button>
+
                                     <List className="list" items={this.state.words} page='practice' year={this.props.match.params.year} category={this.props.category}
                                         style={{ display: this.state.showForm ? 'none' : 'inline' }} />
                                     
-                                    <button onClick={this.handlePracticeClick} style={{ display: this.state.showForm ? 'none' : 'inline' }}> Let's Practise</button>
+                                    { this.state.showForm ? <ContentBox page='practicepage' 
+                                    description={`${this.props.username}, click the buttons to practise your spellings 5 words at a time.`}/> 
+                                    : <div></div>  } 
+
+                                   <p> <button className='practisebutton' onClick={this.handleSpellClick} style={{ display: this.state.showForm ? 'inline' : 'none' }} disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false}>Play word</button></p>    
                                     
                                     <form onSubmit={this.handleSubmit} style={{ display: this.state.showForm ? 'inline' : 'none' }} >
-                                        <label>
-                                            Your spelling: <input type="text" placeholder="spell here" value={this.state.spelling} onChange={this.handleChange} />
-                                        </label>
-                                        <input type="submit" value="Check your spelling" disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false} />
+                                        <input type="text" placeholder="spell here" value={this.state.spelling} onChange={this.handleChange} />
+                                        <input type="submit" value="Check spelling" disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false} />
                                     </form>
                             { this.state.spellings.length ? <SpellingBox spellings={this.state.spellings} correctSpellings={this.state.words[this.state.arrayIndex]} year={this.props.match.params.year} category={this.props.category} style={{ display: this.state.showForm ? 'block' : 'none' }} /> : <div></div> }
                                     
