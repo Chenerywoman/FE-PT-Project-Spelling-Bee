@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import { BeeLogoLarge } from '../logos';
+import { Redirect, Link } from 'react-router-dom';
+import { BeeLogo250px } from '../logos';
 import '../styling/pages/PracticePage.css';
-import { ContentBox, List, SpellingBox } from '../components';
+import { ContentBox, List, SpellingBox, NavBar } from '../components';
 import { findWords } from '../dataFunctions/api';
 import { notYear, chunkArray, checkSpelling } from '../dataFunctions/helpers';
 
@@ -83,15 +83,15 @@ class PracticePage extends Component {
     }
 
     render() {
-        console.log('this.state.spellings', this.state.spellings)
         return (
             <React.Fragment>
                 {!/^[1-6]$/.test(this.props.match.params.year) ? < Redirect to='/404' />
                     : this.state.loading ? <p>loading...</p>
                         :
-                        <React.Fragment>
-                            <header><h1>Time to Practise!</h1></header>
-                            <img src={BeeLogoLarge} id="BeeLogoLarge" className="bee-logo" alt="BeeLogoLarge" />
+                        <div id='practicepage_container'>
+                            <header><NavBar page='practice' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
+                                <h1>Time to Practise!</h1></header>
+                            <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogo250px" /></Link>
                             {notYear(this.state.years, this.props.match.params.year) ?
                                 <p>No {this.state.label} {this.props.match.params.letters} for year {this.props.match.params.year}.</p>
                                 :
@@ -122,7 +122,7 @@ class PracticePage extends Component {
                                     <button onClick={this.handlePracticeAgain} style={{ display: this.state.showForm && this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? 'inline' : 'none' }}> Practise again</button>
                                 </React.Fragment>
                             }
-                        </React.Fragment>
+                        </div>
                 }
             </React.Fragment>
         );
