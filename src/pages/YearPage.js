@@ -39,8 +39,8 @@ class YearPage extends Component {
                     : this.state.loading ? <p>loading...</p>
                         :
                         <div id='yearpage_container' >
-                            <NavBar page='year' year={this.props.match.params.year} category='' username={this.props.username} />
-                            <header><h1>Year {this.props.match.params.year} categories</h1></header>
+                           <header> <NavBar page='year' year={this.props.match.params.year} category='' username={this.props.username} />
+                            <h1>Year {this.props.match.params.year} categories</h1></header>
                             <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogoLarge" /></Link>
                             {!this.state.categories.length ? <p className='holdingmessage'>Year {`${this.props.match.params.year}`} data coming soon...</p>
                                 :
