@@ -32,18 +32,18 @@ class App extends Component {
       <BrowserRouter>
       <React.Fragment>
         <Switch>
-          <Route exact path = '/' render={props => (<HomePage name={this.state.username} logUser={this.logUser}{...props}/>)}/>
-          <Route exact path = '/year:year' render={props => (<YearPage {...props}/>)}/>
-          <Route exact path = '/year:year/prefixes' render={props => (<PartialsPage name={this.state.username} category='Prefixes' {...props}/>)}/>
-          <Route exact path = '/year:year/prefixes/:letters' render={props => (<PracticePage name={this.state.username} category='Prefixes'{...props}/>)}/>
-          <Route exact path = '/year:year/suffixes' render={props => (<PartialsPage name={this.state.username} category='Suffixes' {...props}/>)}/>
-          <Route exact path = '/year:year/suffixes/:letters' render={props => (<PracticePage name={this.state.username} category='Suffixes'{...props}/>)}/>
-          <Route exact path = '/year:year/medials' render={props => (<PartialsPage name={this.state.username} category='Medials'{...props}/>)}/>
-          <Route exact path = '/year:year/medials/:letters' render={props => (<PracticePage name={this.state.username} category='Medials' {...props}/>)}/>
-          <Route exact path = '/year:year/homophones' render={props => (<WordsPage name={this.state.username} category='Homophones'{...props}/>)}/>
-          <Route exact path = '/year:year/homophones/:homophone' render={props => (<PracticePage name={this.state.username} category='Homophones'{...props}/>)}/>
-          <Route exact path = '/year:year/freestyle' render={props => (<WordsPage name={this.state.username} category='Freestyle' {...props}/>)}/>
-          <Route exact path = '/year:year/words' render={props => (<WordsPage name={this.state.username} category='Words' {...props}/>)}/>  
+          <Route exact path = '/' render={props => (<HomePage username={this.state.username} logUser={this.logUser}{...props}/>)}/>
+          <Route exact path = '/year:year' render={props => (<YearPage username={this.state.username}{...props}/>)}/>
+          <Route exact path = '/year:year/prefixes' render={props => (<PartialsPage username={this.state.username} category='Prefixes' {...props}/>)}/>
+          <Route exact path = '/year:year/prefixes/:letters' render={props => (<PracticePage username={this.state.username} category='Prefixes'{...props}/>)}/>
+          <Route exact path = '/year:year/suffixes' render={props => (<PartialsPage username={this.state.username} category='Suffixes' {...props}/>)}/>
+          <Route exact path = '/year:year/suffixes/:letters' render={props => (<PracticePage username={this.state.username} category='Suffixes'{...props}/>)}/>
+          <Route exact path = '/year:year/medials' render={props => (<PartialsPage username={this.state.username} category='Medials'{...props}/>)}/>
+          <Route exact path = '/year:year/medials/:letters' render={props => (<PracticePage username={this.state.username} category='Medials' {...props}/>)}/>
+          <Route exact path = '/year:year/homophones' render={props => (<WordsPage username={this.state.username} category='Homophones'{...props}/>)}/>
+          <Route exact path = '/year:year/homophones/:homophone' render={props => (<PracticePage username={this.state.username} category='Homophones'{...props}/>)}/>
+          <Route exact path = '/year:year/freestyle' render={props => (<WordsPage username={this.state.username} category='Freestyle' {...props}/>)}/>
+          <Route exact path = '/year:year/words' render={props => (<WordsPage username={this.state.username} category='Words' {...props}/>)}/>  
           <Route component={NoMatchPage}/>
       </Switch>
       </React.Fragment>
