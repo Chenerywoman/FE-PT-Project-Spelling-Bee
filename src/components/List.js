@@ -7,7 +7,7 @@ import WordBox from './WordBox';
 const List = ({ items, year, page, category, style}) => {
 
   return (
-    <div className='flex-container'>
+    <div className='flex-container-list'>
       {items.map(item => <WordBox key={item._id} item={item}  page={page} year={year} category={category} style={style} />)}
     </div>
   )
