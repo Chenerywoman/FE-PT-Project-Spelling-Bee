@@ -1,3 +1,7 @@
+#yearpage_container {
+    margin: 1%;
+}
+
 #BeeLogoLarge {
     position: fixed;
     top: 0;
@@ -17,3 +21,8 @@
         font-weight: bold;
         color: black;
     }
+
+.holdingmessage {
+
+    font-size: 1.5rem;
+}    
