@@ -60,10 +60,11 @@ class HomePage extends Component {
             <React.Fragment>
             {!this.state.userlogged ? 
             <React.Fragment>
-              <form onSubmit={this.handleSubmit} id='loginform'>
-                <input id='addName' placeholder='...your name' type="text" value={this.state.value} onChange={this.handleChange} size='12'/>
-                <span id={BeeLogo100pxtoresize}><input type="image" name="submit" src={BeeLogo100pxtoresize} alt="Submit" /></span>
+              <form onSubmit={this.handleSubmit} >
+                <input id='addName' placeholder='...your name' type="text" value={this.state.value} onChange={this.handleChange} size='12' />
+                <span id={BeeLogo100pxtoresize}><input type="image" name="submit" src={BeeLogo100pxtoresize} alt="Submit" disabled={this.state.value.length === 0 ? true: false}/></span>
               </form>
+              <p>Please input your name to play Spelling Bee.</p>
               </React.Fragment>
               :
               <React.Fragment>
