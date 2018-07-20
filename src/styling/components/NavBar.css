@@ -1,116 +1,183 @@
 .flex-container-navbar {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
     flex-direction: row;
-    justify-content: flex-start;
+    list-style-type: none;
+    margin: 0;
+    top: 0;
+    padding: 0; 
+    /* width: 100%; */
+   /* overflow: hidden; */
   }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  /* background-color: white; */
-  /* position: fixed; */
-  top: 0;
-  width: 100%;
-  padding: 1rem; 
-  /* margin: 1rem; */
- /*overflow: hidden; */
-} 
-
-#home {
+/* #home {
   background-color: grey;
   border: none;
   border-radius: 10%;
   padding: 16px 32px;
   margin: 4px 2px;
   color: black;
-  /* font-size: 1.5rem; */
+  font-size: 1.5rem;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
-}
+} */
 
 #year1link {
   background-color: gold;
+  color: black;
   border: none;
   border-radius: 10%;
-  padding: 16px 32px;
   margin: 4px 2px;
-  color: black;
-  /* font-size: 1.5rem; */
+  padding: 8px 16px;
+  font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
 
 #year2link {
   background-color: limegreen;
+  color: black;
   border: none;
   border-radius: 10%;
-  padding: 16px 32px;
   margin: 4px 2px;
-  color: black;
-  /* font-size: 1.5rem; */
+  padding: 8px 16px;
+  font-size: 1rem; 
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
 
 #year3link {
   background-color: dodgerblue;
+  color: black;
   border: none;
   border-radius: 10%;
-  padding: 16px 32px;
   margin: 4px 2px;
-  color: black;
-  /* font-size: 1.5rem; */
+  padding: 8px 16px;
+  font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
 
 #year4link {
   background-color: mediumorchid;
+  color: black;
   border: none;
   border-radius: 10%;
-  padding: 16px 32px;
   margin: 4px 2px;
-  color: black;
-  /* font-size: 1.5rem; */
+  padding: 8px 16px;
+  font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
 
 #year5link {
   background-color: deeppink;
+  color: black;
   border: none;
   border-radius: 10%;
-  padding: 16px 32px;
   margin: 4px 2px;
-  color: black;
-  /* font-size: 1.5rem; */
+  padding: 8px 16px;
+  font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
 
 #year6link {
   background-color: crimson;
+  color: black;
   border: none;
   border-radius: 10%;
-  padding: 16px 32px;
   margin: 4px 2px;
-  color: black;
-  /* font-size: 1.5rem; */
+  padding: 8px 16px;
+  font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
 
+#prefixesLink {
+  background-color: darkblue;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  margin: 4px 2px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+#suffixesLink {
+  background-color: blueviolet;
+    border: none;
+    border-radius: 10%;
+    color: white;
+    margin: 4px 2px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#medialsLink {
+  background-color: mediumvioletred;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  margin: 4px 2px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+#homophonesLink {
+  background-color: firebrick;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  margin: 4px 2px;
+  padding: 8px 16px;
+  font-size: 1rem; 
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+#freestyleLink {
+  background-color: darkorange;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  margin: 4px 2px;
+  padding: 8px 16px;
+  font-size: 1rem; 
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+#wordsLink {
+  background-color: goldenrod;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  margin: 4px 2px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+
 .link {
-  color: dimgrey;
   text-align: center;
-  padding: 1rem 1rem;  
+  padding: 0.25rem 0.25rem;  
   text-decoration: none;
 }
 
 .link-active{
-  color: blue;
   text-align: center;
-  padding: 1rem 1rem;
+  padding: 0.5em 0.000000000008em;
   text-decoration: none;
+  border: 5px solid paleturquoise;
+  border-radius: 15%;
+ 
 } 
