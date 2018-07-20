@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { BeeLogoLarge } from '../logos';
-import { ContentBox, List } from '../components';
+import { ContentBox, NavBar, List } from '../components';
 import '../styling/pages/PartialsPage.css';
 import { findList } from '../dataFunctions/api'
 import { notYear } from '../dataFunctions/helpers'
@@ -44,7 +44,8 @@ class PartialsPage extends Component {
                     : this.state.loading ? <p>loading...</p>
                         :
                         <React.Fragment>
-                            <header><h1>Year {this.props.match.params.year} {this.props.category}</h1></header>
+                             <header> <NavBar page='year' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
+                          <h1>Year {this.props.match.params.year} {this.props.category}</h1></header>
                             <img src={BeeLogoLarge} id="BeeLogoLarge" className="bee-logo" alt="BeeLogoLarge" />
                             {notYear(this.state.partial.years, this.props.match.params.year) ? 
                             <p>No {this.props.category.toLowerCase()} for year {this.props.match.params.year}.</p>
