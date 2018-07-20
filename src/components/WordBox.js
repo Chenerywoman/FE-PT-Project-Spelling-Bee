@@ -11,7 +11,7 @@ const WordBox = ({ item, page, year, category, style }) => {
                 :
                 page === 'year' ? <Link to={`/year${year}/${item.name}`}><button id={item.name}>{item.name}</button></Link>
                     :
-                    page === 'partials' ? <Link to={`/year${year}/${category.toLowerCase()}/${item.letters}`}><button>{item.letters}</button></Link>
+                    page === 'partials' ? <Link to={`/year${year}/${category.toLowerCase()}/${item.letters}`}><button className='partials' >{item.letters}</button></Link>
                         :
                         page === 'words' ? <button> {item.word} </button> 
                             : 
