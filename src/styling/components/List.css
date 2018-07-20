@@ -1,5 +1,5 @@
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.flex-container-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   }
