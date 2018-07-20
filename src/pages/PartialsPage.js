@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { BeeLogoLarge } from '../logos';
+import { BeeLogo250px } from '../logos';
 import { ContentBox, NavBar, List } from '../components';
 import '../styling/pages/PartialsPage.css';
 import { findList } from '../dataFunctions/api'
@@ -27,37 +27,36 @@ class PartialsPage extends Component {
         this.getCategory(this.props.category)
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     console.log('in component did update partials page')
-    //     const currPartial = this.props.partial
-    //     const prevPartial = prevProps.partial
-    //     if (currPartial !== prevPartial) {
-    //         this.setState({ loading: true })
-    //         this.getCategory(currPartial)
-    //     }
-    // }
+    componentDidUpdate(prevProps, prevState) {
+        const currPartial = this.props.category
+        const prevPartial = prevProps.category
+        if (currPartial !== prevPartial) {
+            this.setState({ loading: true })
+            this.getCategory(currPartial)
+        }
+    }
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 {!/^[1-6]$/.test(this.props.match.params.year) ? < Redirect to='404' />
                     : this.state.loading ? <p>loading...</p>
                         :
-                        <React.Fragment>
+                        <div id='partialspage_container'>
                              <header> <NavBar page='year' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
                           <h1>Year {this.props.match.params.year} {this.props.category}</h1></header>
-                            <img src={BeeLogoLarge} id="BeeLogoLarge" className="bee-logo" alt="BeeLogoLarge" />
+                          <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogoLarge" /></Link>
                             {notYear(this.state.partial.years, this.props.match.params.year) ? 
                             <p>No {this.props.category.toLowerCase()} for year {this.props.match.params.year}.</p>
                             :
                                 <React.Fragment>
-                                    <ContentBox className="content" description={this.state.partial.description} />
+                                    <ContentBox description={this.state.partial.description} page='partialspage'/>
                                     <List className="list" items={this.state.list} page='partials' year={this.props.match.params.year} category={this.props.category} />
                                 </React.Fragment>   
                             }
-                        </React.Fragment>
+                        </div>
                 }
-            </div>
+            </React.Fragment>
         )
     }
 }
