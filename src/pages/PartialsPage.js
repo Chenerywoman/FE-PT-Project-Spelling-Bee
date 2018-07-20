@@ -43,9 +43,9 @@ class PartialsPage extends Component {
                     : this.state.loading ? <p>loading...</p>
                         :
                         <div id='partialspage_container'>
-                             <header> <NavBar page='year' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
+                             <header> <NavBar page='partials' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
                           <h1>Year {this.props.match.params.year} {this.props.category}</h1></header>
-                          <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogoLarge" /></Link>
+                          <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogo250px" /></Link>
                             {notYear(this.state.partial.years, this.props.match.params.year) ? 
                             <p>No {this.props.category.toLowerCase()} for year {this.props.match.params.year}.</p>
                             :
