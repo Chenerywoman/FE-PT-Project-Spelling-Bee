@@ -42,7 +42,7 @@ class YearPage extends Component {
                            <header> <NavBar page='year' year={this.props.match.params.year} category='' username={this.props.username} />
                             <h1>Year {this.props.match.params.year} categories</h1></header>
                          
-                            <Link className='link' to='/'>
+                            <Link className='bee-link' to='/'>
                             <img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogoLarge" />
                             <p>fly home...</p>
                             </Link>
