@@ -41,13 +41,18 @@ class YearPage extends Component {
                         <div id='yearpage_container' >
                            <header> <NavBar page='year' year={this.props.match.params.year} category='' username={this.props.username} />
                             <h1>Year {this.props.match.params.year} categories</h1></header>
-                            <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogoLarge" /></Link>
+                         
+                            <Link className='link' to='/'>
+                            <img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogoLarge" />
+                            <p id='bee-logo-caption'>fly home...</p>
+                            </Link>
+
                             {!this.state.categories.length ? <p className='holdingmessage'>Year {`${this.props.match.params.year}`} data coming soon...</p>
                                 :
-                                <React.Fragment>
+                                <p>
                                     <ContentBox description={`${this.props.username}, click on a link below for a description of each category and examples to practise.`} page='yearpage'/>
                                     <List items={this.state.categories} page='year' year={this.props.match.params.year} />
-                                </React.Fragment>
+                                </p>
                             }
                         
                         </div>
