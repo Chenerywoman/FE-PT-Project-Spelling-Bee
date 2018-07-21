@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { BeeLogo250px } from '../logos';
 import '../styling/pages/PracticePage.css';
-import { ContentBox, List, SpellingBox, NavBar } from '../components';
+import { ContentBox, List, SpellingBox, NavBar, NavBarCategories } from '../components';
 import { findWords } from '../dataFunctions/api';
 import { notYear, chunkArray, checkSpelling } from '../dataFunctions/helpers';
 
@@ -95,7 +95,9 @@ class PracticePage extends Component {
 
                             <div id='practicepage_container'>
                                 <header><NavBar page='practice' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
-                                    <h1>Practise <span id='practiseHighlight'>{`${this.state.label}:${this.props.match.params.letters}`} </span></h1></header>
+                                    <NavBarCategories year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
+                                    <h1><span id='practiseHighlight1'>{this.state.label}</span>:<span id='practiseHighlight2'>{`"${this.props.match.params.letters}"`}</span></h1>
+                                </header>
                                 {
                                     notYear(this.state.years, this.props.match.params.year) ?
                                         <p>No {this.state.label} {this.props.match.params.letters} for year {this.props.match.params.year}.</p>
@@ -106,7 +108,10 @@ class PracticePage extends Component {
                                                 !this.state.showForm ?
 
                                                     <React.Fragment>
-                                                        <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogo250px" /></Link>
+                                                        <Link className='bee-link' to='/'>
+                                                        <img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogo250px" />
+                                                        <p>fly home...</p>
+                                                        </Link>
                                                         <ContentBox page='practicepage' description={`${this.props.username}, practise these words with the ${this.state.label} '${this.props.match.params.letters}' 5 words at a time.`} />
                                                         <button className='practisebutton' onClick={this.handlePracticeClick} > Let's Go!</button>
                                                         <List className="list" items={this.state.words} page='practice' year={this.props.match.params.year} category={this.props.category} />
