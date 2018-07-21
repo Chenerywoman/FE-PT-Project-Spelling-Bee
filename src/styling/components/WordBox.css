@@ -164,3 +164,14 @@
     font-weight: bold;
 
 }
+
+.practiceWords {
+    border-radius: 10%;
+    padding: 8px 16px;
+    margin: 0.15rem 0.15rem;
+    color: mediumseagreen;
+    font-size: 1.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+
+}
