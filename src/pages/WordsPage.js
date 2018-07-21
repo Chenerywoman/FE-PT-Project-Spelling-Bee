@@ -52,7 +52,10 @@ class WordsPage extends Component {
                         <header> <NavBar page='words' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
                         <NavBarCategories year={this.props.match.params.year} category={this.props.category} username={this.props.username}/>
                             </header>
-                            <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogo250px" /></Link>
+                            <Link className='bee-link' to='/'>
+                            <img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogo250px" />
+                            <p>fly home...</p>
+                            </Link>
                             {notYear(this.state.type.years, this.props.match.params.year) ? 
                             <p>No {this.props.category.toLowerCase()} for year {this.props.match.params.year}. </p>
                             :
