@@ -69,9 +69,9 @@ class HomePage extends Component {
               :
               <React.Fragment>
                <h2 id='greeting' >{`Hi ${this.props.username}!`}</h2> 
-               <button id='changeLogin' onClick={this.handleLoginChange} >change name</button> 
               <ContentBox description='Choose your school year:' page='homepage' />
               <List items={this.state.years} page='home' />
+              <button id='changeLogin' onClick={this.handleLoginChange} >{`Not ${this.props.username}? Click here to change to your name.`}</button> 
             </React.Fragment>
             }
              </React.Fragment>
