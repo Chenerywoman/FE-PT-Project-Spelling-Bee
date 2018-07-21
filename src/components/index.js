@@ -4,5 +4,6 @@ import ContentBox from './ContentBox';
 import WordBox from './WordBox';
 import SpellingBox from './SpellingBox';
 import NavBar from './NavBar';
+import NavBarCategories from './NavBarCategories';
 
-export {App, List, ContentBox, WordBox, SpellingBox, NavBar}
+export {App, List, ContentBox, WordBox, SpellingBox, NavBar, NavBarCategories}
