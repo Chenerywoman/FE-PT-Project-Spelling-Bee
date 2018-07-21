@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Redirect, Link} from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import { BeeLogo250px } from '../logos';
-import { ContentBox, List, NavBar } from '../components';
+import { ContentBox, List, NavBar, NavBarCategories } from '../components';
 import '../styling/pages/WordsPage.css';
 import { findCategory, findList } from '../dataFunctions/api';
 import { notYear } from '../dataFunctions/helpers';
@@ -50,7 +50,8 @@ class WordsPage extends Component {
                         :
                         <div id='wordspage_container'>
                         <header> <NavBar page='words' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
-                            <h1>Year {this.state.year} {this.props.category}</h1></header>
+                        <NavBarCategories year={this.props.match.params.year} category={this.props.category} username={this.props.username}/>
+                            </header>
                             <Link className='link' to='/'><img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogo250px" /></Link>
                             {notYear(this.state.type.years, this.props.match.params.year) ? 
                             <p>No {this.props.category.toLowerCase()} for year {this.props.match.params.year}. </p>
