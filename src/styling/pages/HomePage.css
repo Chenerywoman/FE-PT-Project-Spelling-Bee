@@ -2,11 +2,14 @@
     margin: 5%;
 }
 
+h1, h2, p{
+    color: darkblue;
+}
+
 body {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    color: black;
     background-color: floralwhite
 }
 
@@ -17,7 +20,7 @@ body {
     border-radius: 10%;
     padding: 16px 32px; 
     margin: 4px 2px;
-    color: black;
+    color: darkblue;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
@@ -30,7 +33,7 @@ body {
     border-radius: 10%;
     padding: 8px 16px;
     margin: 2rem 1rem;
-    color: black;
+    color: darkblue;
     font-size: 1rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;

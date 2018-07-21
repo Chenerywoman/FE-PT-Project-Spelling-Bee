@@ -1,28 +1,33 @@
 
 #homepage {
     font-size: 1.5rem;
+    color: darkblue;
 }
 
 #yearpage {
     font-size: 1.5rem;
     margin-left: 3%;
     margin-right: 3%;
+    color: darkblue;
 }
 
 #partialspage {
     font-size: 1.25rem;
     margin-left: 5%;
     margin-right: 5%;
+    color: darkblue;
 }
 
 #wordspage {
     font-size: 1.25rem;
     margin-left: 5%;
     margin-right: 5%;
+    color: darkblue;
 }
 
 #practicepage {
     font-size: 1.5rem;
     margin-left: 10%;
     margin-right: 10%;
+    color: darkblue;
 }
