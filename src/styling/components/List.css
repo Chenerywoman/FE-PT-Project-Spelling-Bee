@@ -2,4 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+ 
   }
+/* 
+  // margins are using ids in ContentBox.css  
+} */
