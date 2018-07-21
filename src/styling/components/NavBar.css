@@ -7,7 +7,7 @@
     margin: 0;
     top: 0;
     padding: 0; 
-    /* width: 100%; */
+    width: 100%; 
    /* overflow: hidden; */
   }
 
@@ -190,7 +190,7 @@
   color: white;
   padding: 0.5em 0.00000000000000000000008em;
   text-decoration: none;
-  border: 5px solid pink;
+  border: 5px solid aqua;
   border-radius: 15%;
  
 } 
