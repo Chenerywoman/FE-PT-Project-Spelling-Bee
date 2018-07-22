@@ -49,7 +49,7 @@ class PartialsPage extends Component {
                         <div id='partialspage_container'>
                              <header> 
                                  <NavBar page='partials' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
-                          <NavBarCategories year={this.props.match.params.year} category={this.props.category} username={this.props.username}/>
+                          <NavBarCategories year={this.props.match.params.year} page='partials' category={this.props.category} username={this.props.username}/>
                           </header>
                             {notYear(this.state.partial.years, this.props.match.params.year) ? 
                             <p>No {this.props.category.toLowerCase()} for year {this.props.match.params.year}.</p>
