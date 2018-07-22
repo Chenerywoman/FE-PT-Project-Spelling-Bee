@@ -90,6 +90,7 @@
 #goBack {
     background-color: rgba(255, 250, 240, 0.952);
     border-radius: 10%;
+    border: 0.5px solid gray;
     padding: 16px 32px;
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
