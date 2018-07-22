@@ -8,14 +8,15 @@ class SpellingBox extends Component {
     total: 0
   }
 
-  checkWord = (word) => {
-    return word.every(char => char.correct)
+  checkWord = (spelling, word) => {
+    if (spelling.every(char => char.correct) && spelling.length === word.word.length)
+    return true;
   }
 
   makeWord = (word) => {
 
     return word.map(({ letter, correct }, ind) => {
-      return <span key={ind} className={correct ? 'green' : 'red'} >{letter}</span>
+      return <span key={ind} className={correct ? 'blue' : 'red'} >{letter}</span>
     })
 
   }
@@ -44,13 +45,13 @@ class SpellingBox extends Component {
       <table id='spelling-table'>
       <tbody>
       <tr>
-    <th className='table-heading' >Correct Spelling</th>
-    <th className='table-heading'>Your Spelling</th> 
+    <th className='table-heading' >Your Spelling</th>
+    <th className='table-heading'>Correct Spelling</th> 
     </tr> 
       {this.props.spellings.map((word, ind) => 
         <tr key={ind}>
         <td>{this.makeWord(word)}</td> 
-        <td className='green'>{this.checkWord(word) ? <div>&#x2714;</div> : this.props.correctSpellings[ind].word}</td>
+        <td className='green'>{this.checkWord(word, this.props.correctSpellings[ind]) ? <div>&#x2714;</div> : this.props.correctSpellings[ind].word}</td>
       </tr>
       )
       }
