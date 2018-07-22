@@ -39,7 +39,7 @@ class App extends Component {
           <Route exact path = '/year:year/prefixes/:letters/practice' render={props => (<PracticePage username={this.state.username} category='Prefixes'{...props}/>)}/>
           <Route exact path = '/year:year/suffixes' render={props => (<PartialsPage username={this.state.username} category='Suffixes' {...props}/>)}/>
           <Route exact path = '/year:year/suffixes/:letters' render={props => (<IndividualPage username={this.state.username} category='Suffixes'{...props}/>)}/>
-          <Route exact path = '/year:year/suffixes/:letters/practicde' render={props => (<PracticePage username={this.state.username} category='Suffixes'{...props}/>)}/>
+          <Route exact path = '/year:year/suffixes/:letters/practice' render={props => (<PracticePage username={this.state.username} category='Suffixes'{...props}/>)}/>
           <Route exact path = '/year:year/medials' render={props => (<PartialsPage username={this.state.username} category='Medials'{...props}/>)}/>
           <Route exact path = '/year:year/medials/:letters' render={props => (<IndividualPage username={this.state.username} category='Medials' {...props}/>)}/>
           <Route exact path = '/year:year/medials/:letters/practice' render={props => (<PracticePage username={this.state.username} category='Medials' {...props}/>)}/>
