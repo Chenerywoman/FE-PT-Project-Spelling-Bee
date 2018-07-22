@@ -12,12 +12,12 @@
 table {
     margin: auto;
     border-collapse: collapse;
-    /* font-size: 1.5 rem; */
+    font-size: 1.5rem;
 }
 
 td, th{
 border: 1px solid darkblue;
-padding: 15px;
+padding: 10px;
 text-align: left;
 }
 
@@ -26,5 +26,6 @@ text-align: left;
 }
 
 #score {
-    /* font-size: 1.5 rem; */
+    font-size: 1.5rem;
+    margin-bottom: 0;
 }
