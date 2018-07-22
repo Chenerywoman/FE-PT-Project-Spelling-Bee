@@ -21,7 +21,8 @@ class YearPage extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps !== this.props || prevState !== this.state) {
+        console.log('in component did update')
+        if (prevProps !== this.props) {
             return findCategoriesByYear(this.props.match.params.year)
             .then(({ categories }) => this.setState({ categories, loading: false }))
             .catch(error => {
@@ -48,10 +49,10 @@ class YearPage extends Component {
 
                             {!this.state.categories.length ? <p className='holdingmessage'>Year {`${this.props.match.params.year}`} data coming soon...</p>
                                 :
-                                <p>
+                                <React.Fragment>
                                     <ContentBox description={`${this.props.username}, click on a link below for a description of each category and examples to practise.`} page='yearpage'/>
                                     <List items={this.state.categories} page='year' year={this.props.match.params.year} />
-                                </p>
+                                </React.Fragment>
                             }
                         
                         </div>
