@@ -2,25 +2,25 @@
     margin: 2%;
 }
 
-.practisebutton {
-    background-color: mediumseagreen;
-    border: 1px solid black;
-    border-radius: 10%;
-    padding: 16px 32px;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    color: black;
-    font-size: 1.5rem;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-}
-
 #practiseHighlight1 {
     color: blue;
 }
 
 #practiseHighlight2 {
     color: mediumseagreen;
+}
+
+#playbutton {
+    background-color: mediumseagreen;
+    border: 1px solid black;
+    border-radius: 10%;
+    padding: 8px 16px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: black;
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 
 #inputSpelling {
@@ -30,9 +30,10 @@
     padding: 16px 32px; 
     margin: 4px 2px;
     color: black;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    width: 20rem;
 }
 
 
@@ -40,10 +41,10 @@
     background-color: mediumvioletred;
     border: 1px solid black;
     border-radius: 10%;
-    padding: 16px 32px;
+    padding: 8px 16px;
     margin: 1rem 1rem;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 
@@ -53,10 +54,10 @@
     background-color: gold;
     border: 1px solid black;
     border-radius: 10%;
-    padding: 16px 32px;
+    padding: 8px 16px;
     margin: 1rem 1rem;
     color: black;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
@@ -65,10 +66,10 @@
     background-color: mediumorchid;
     border: 1px solid black;
     border-radius: 10%;
-    padding: 16px 32px;
+    padding: 8px 16px;
     margin: 1rem 1rem;
     color: black;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
@@ -77,8 +78,21 @@
     background-color: limegreen;
     border: 1px solid black;
     border-radius: 10%;
-    padding: 16px 32px;
+    padding: 8px 16px;
     margin: 1rem 1rem;
+    color: black;
+    font-size: 1.25rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+
+}
+
+#goBack {
+    background-color: rgba(255, 250, 240, 0.952);
+    border-radius: 10%;
+    padding: 16px 32px;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
     color: black;
     font-size: 1.5rem;
     font-family: 'Courier New', Courier, monospace;
