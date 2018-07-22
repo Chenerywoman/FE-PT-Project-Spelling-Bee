@@ -57,7 +57,9 @@ class SpellingBox extends Component {
       }
       </tbody>
       </table>
-    { this.props.spellings.length === this.props.correctSpellings.length ? <p id='score'> {`Score: ${this.state.total} / ${this.props.correctSpellings.length}`}</p> : <div></div> }
+    { this.props.spellings.length === this.props.correctSpellings.length ? 
+    <p id='score'> {`Score: ${this.state.total} / ${this.props.correctSpellings.length}`}</p> 
+    : <div></div> }
       </React.Fragment>
   }
 
