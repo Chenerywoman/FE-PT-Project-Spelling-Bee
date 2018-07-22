@@ -29,7 +29,7 @@ class IndividualPage extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps !== this.props || prevState !== this.state) {
+        if (prevProps !== this.props) {
             this.getWords(this.props.category, this.props.match.params.letters)
         }
     }
