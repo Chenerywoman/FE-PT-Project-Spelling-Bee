@@ -45,7 +45,7 @@ class IndividualPage extends Component {
 
                         <div id='individualpage_container'>
                             <header><NavBar page='practice' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
-                                <NavBarCategories year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
+                                <NavBarCategories year={this.props.match.params.year} page='individual' category={this.props.category} username={this.props.username} />
                                 <h1><span id='practiseHighlight1'>{this.state.label}</span>:<span id='practiseHighlight2'>{`"${this.props.match.params.letters}"`}</span> </h1>
                             </header>
                             {
