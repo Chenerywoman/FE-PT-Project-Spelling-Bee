@@ -45,13 +45,13 @@ class SpellingBox extends Component {
       <table id='spelling-table'>
       <tbody>
       <tr>
-    <th className='table-heading' >Word</th>
+    <th className='table-heading' >Correct Spelling</th>
     <th className='table-heading'>Your Spelling</th> 
     </tr> 
       {this.props.spellings.map((word, ind) => 
         <tr key={ind}>
-        <td className='green'>{this.checkWord(word) ? '' : this.props.correctSpellings[ind].word}</td>
         <td>{this.makeWord(word)}</td> 
+        <td className='green'>{this.checkWord(word) ? <div>&#x2714;</div> : this.props.correctSpellings[ind].word}</td>
       </tr>
       )
       }
