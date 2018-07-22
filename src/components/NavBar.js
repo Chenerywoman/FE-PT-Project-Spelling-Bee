@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../styling/components/NavBar.css'
+import { BeeLogo100pxtoresize } from '../logos';
 
 class NavBar extends Component {
 
@@ -14,6 +15,7 @@ class NavBar extends Component {
             <li ><Link className={this.props.year === '4' ? 'link-active' : 'link'}  to='/year4' ><button id='year4link'>Year 4</button></Link></li>
             <li ><Link className={this.props.year === '5' ? 'link-active' : 'link'}  to='/year5' ><button id='year5link'>Year 5</button></Link></li>
             <li ><Link className={this.props.year === '6' ? 'link-active' : 'link'}  to='/year6' ><button id='year6link'>Year 6</button></Link></li>
+            <li ><Link to='/'><img src={BeeLogo100pxtoresize} alt="BeeLogo100px" /></Link></li>
         </ul>
         </nav>
     )
