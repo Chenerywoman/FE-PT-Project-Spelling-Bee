@@ -44,7 +44,6 @@ class YearPage extends Component {
                          
                             <Link className='bee-link' to='/'>
                             <img src={BeeLogo250px} id="BeeLogo250px" className="bee-logo" alt="BeeLogoLarge" />
-                            <p>fly home...</p>
                             </Link>
 
                             {!this.state.categories.length ? <p className='holdingmessage'>Year {`${this.props.match.params.year}`} data coming soon...</p>
