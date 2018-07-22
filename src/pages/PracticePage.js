@@ -117,13 +117,13 @@ class PracticePage extends Component {
                                                             : <div></div>
                                                         }
 
-                                                        <button id='nextWords' onClick={this.handleNextWords} style={{ display: this.state.wordsIndex === this.state.words[this.state.arrayIndex].length - 1 && this.state.arrayIndex < this.state.words.length - 1 ? 'inline' : 'none' }}
+                                                        <button id='nextWords' onClick={this.handleNextWords} style={{ display: this.state.spellings.length  === this.state.words[this.state.arrayIndex].length && this.state.arrayIndex < this.state.words.length - 1 ? 'inline' : 'none' }}
                                                             disabled={this.state.words.length - 1 === this.state.arrayIndex}> Next words</button>
 
-                                                        <button id='previousWords' onClick={this.handlePreviousWords} style={{ display: this.state.wordsIndex === this.state.words[this.state.arrayIndex].length - 1 && this.state.arrayIndex > 0 ? 'inline' : 'none' }}
+                                                        <button id='previousWords' onClick={this.handlePreviousWords} style={{ display: this.state.spellings.length  === this.state.words[this.state.arrayIndex].length && this.state.arrayIndex > 0 ? 'inline' : 'none' }}
                                                             disabled={this.state.arrayIndex === 0}> Previous words</button>
 
-                                                        <button id='practiceAgain' onClick={this.handlePracticeAgain} style={{ display: this.state.wordsIndex === this.state.words[this.state.arrayIndex].length - 1 ? 'inline' : 'none' }}> Practise again?</button>
+                                                        <button id='practiceAgain' onClick={this.handlePracticeAgain} style={{ display: this.state.spellings.length  === this.state.words[this.state.arrayIndex].length ? 'inline' : 'none' }}> Practise again?</button>
                                                     </React.Fragment>  
                                 }
                             </div>
