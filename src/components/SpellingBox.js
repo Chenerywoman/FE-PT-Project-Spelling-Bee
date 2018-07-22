@@ -15,8 +15,8 @@ class SpellingBox extends Component {
 
   makeWord = (word) => {
 
-    return word.map(({ letter, correct }) => {
-      return <span className={correct ? 'green' : 'red'} >{letter}</span>
+    return word.map(({ letter, correct }, ind) => {
+      return <span key={ind} className={correct ? 'green' : 'red'} >{letter}</span>
     })
 
   }
@@ -43,17 +43,19 @@ class SpellingBox extends Component {
   render() {
     return <React.Fragment> 
       <table id='spelling-table'>
+      <tbody>
       <tr>
     <th className='table-heading' >Word</th>
     <th className='table-heading'>Your Spelling</th> 
     </tr> 
       {this.props.spellings.map((word, ind) => 
-        <tr>
+        <tr key={word}>
         <td className='green'>{this.checkWord(word) ? '' : this.props.correctSpellings[ind].word}</td>
         <td>{this.makeWord(word)}</td> 
       </tr>
       )
       }
+      </tbody>
       </table>
     { this.props.spellings.length === this.props.correctSpellings.length ? <p id='score'> {`Score: ${this.state.total} / ${this.props.correctSpellings.length}`}</p> : <div></div> }
       </React.Fragment>
