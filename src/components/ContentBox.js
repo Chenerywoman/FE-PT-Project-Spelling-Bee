@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styling/components/ContentBox.css'
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const ContentBox = ({description, page}) => {
 return (
@@ -9,3 +9,10 @@ return (
 }
 
 export default ContentBox
+
+ContentBox.propTypes = {
+
+    description: PropTypes.string.isRequired,
+    page: PropTypes.string.isRequired,
+
+}

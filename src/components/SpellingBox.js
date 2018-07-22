@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import '../styling/components/SpellingBox.css';
 
 class SpellingBox extends Component {
 
   state = {
-
     total: 0
-
   }
 
   checkWord = (word) => {
@@ -62,6 +61,13 @@ class SpellingBox extends Component {
     : <div></div> }
       </React.Fragment>
   }
+
+}
+
+SpellingBox.propTypes = {
+
+  spellings: PropTypes.array.isRequired,
+  correctSpellings: PropTypes.array.isRequired,
 
 }
 

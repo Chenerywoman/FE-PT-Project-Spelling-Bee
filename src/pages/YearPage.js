@@ -4,6 +4,7 @@ import { BeeLogo250px } from '../logos';
 import { ContentBox, NavBar, List } from '../components';
 import '../styling/pages/YearPage.css';
 import { findCategoriesByYear } from '../dataFunctions/api';
+import PropTypes from 'prop-types';
 
 class YearPage extends Component {
 
@@ -21,7 +22,6 @@ class YearPage extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('in component did update')
         if (prevProps !== this.props) {
             return findCategoriesByYear(this.props.match.params.year)
             .then(({ categories }) => this.setState({ categories, loading: false }))
@@ -64,4 +64,13 @@ class YearPage extends Component {
 
 export default YearPage;
 
+YearPage.propTypes = {
+    match: PropTypes.shape({
+                params: PropTypes.shape({
+                    year: PropTypes.string.isRequired,
+                })
+            }),
+            history: PropTypes.object.isRequired,
+            username: PropTypes.string.isRequired,
 
+}

@@ -24,9 +24,7 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
 
-    username: PropTypes.string.isRequired,
-    page: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
 
 }
 

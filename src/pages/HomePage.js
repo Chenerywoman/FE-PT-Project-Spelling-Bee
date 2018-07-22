@@ -3,6 +3,7 @@ import { BeeLogo100pxtoresize, BeeLogo250px } from '../logos';
 import { ContentBox, List } from '../components';
 import { findYears } from '../dataFunctions/api'
 import '../styling/pages/HomePage.css';
+import PropTypes from 'prop-types';
 
 class HomePage extends Component {
 
@@ -84,5 +85,11 @@ class HomePage extends Component {
 
 }
 
+HomePage.propTypes = {
+
+  username: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
+
+}
 
 export default HomePage;

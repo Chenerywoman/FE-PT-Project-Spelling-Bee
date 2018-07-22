@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styling/components/WordBox.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const WordBox = ({ item, page, year, category, style }) => {
 
@@ -24,5 +24,15 @@ const WordBox = ({ item, page, year, category, style }) => {
         </React.Fragment>   
     )
 }
+
+WordBox.propTypes = {
+
+    item: PropTypes.object.isRequired,
+    page: PropTypes.string.isRequired,
+    year: PropTypes.string,
+    category: PropTypes.string,
+    style: PropTypes.string,
+  
+  }
 
 export default WordBox;

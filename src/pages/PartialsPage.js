@@ -75,6 +75,13 @@ export default PartialsPage;
 
 PartialsPage.propTypes = {
 
-    category: PropTypes.string.isRequired
+    category: PropTypes.string.isRequired,
+    history: PropTypes.object.isRequired,
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            year: PropTypes.string.isRequired,
+        })
+    }),
+    username: PropTypes.string.isRequired,
 
 }

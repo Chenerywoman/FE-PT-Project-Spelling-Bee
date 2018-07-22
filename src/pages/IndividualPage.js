@@ -5,6 +5,7 @@ import '../styling/pages/IndividualPage.css';
 import { ContentBox, List, NavBar, NavBarCategories } from '../components';
 import { findWords } from '../dataFunctions/api';
 import { notYear } from '../dataFunctions/helpers';
+import PropTypes from 'prop-types';
 
 class IndividualPage extends Component {
 
@@ -72,6 +73,20 @@ class IndividualPage extends Component {
     }
 
 }
+
+IndividualPage.propTypes = {
+
+    category: PropTypes.string.isRequired,
+    history: PropTypes.object.isRequired,
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            letters: PropTypes.string.isRequired,
+            year: PropTypes.string.isRequired,
+        })
+    }),
+    username: PropTypes.string.isRequired,
+    
+  }
 
 export default IndividualPage;
 
