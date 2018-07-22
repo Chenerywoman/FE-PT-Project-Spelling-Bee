@@ -1,20 +1,25 @@
 .flashWord {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
+
+    margin-left: 5rem;
+    font-size: 1.5rem;
+    color: blue;
+    /* width: 100px;
+    height: 100px; */
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
     opacity: 0;
-    visibility: hidden; 
   }
 
   .flashWord-show {
     margin-left: 5rem;
     font-size: 1.5rem;
     color: blue;
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
     opacity: 1;
-    visibility: visible; 
   }
 
