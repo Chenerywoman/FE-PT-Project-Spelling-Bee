@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Link} from 'react-router-dom';
 import '../styling/pages/PracticePage.css';
-import { ContentBox, SpellingBox, NavBar, NavBarCategories } from '../components';
+import { ContentBox, SpellingBox, NavBar, NavBarCategories, FlashWord } from '../components';
 import { findWords } from '../dataFunctions/api';
 import { notYear, chunkArray, checkSpelling } from '../dataFunctions/helpers';
 
@@ -18,7 +18,8 @@ class PracticePage extends Component {
         voices: false,
         spelling: '',
         correct: true,
-        spellings: []
+        spellings: [], 
+        show: false,
 
     }
 
@@ -37,11 +38,13 @@ class PracticePage extends Component {
     }
 
     handleSpellClick = () => {
+        this.setState({show: true});
         const voices = window.speechSynthesis.getVoices()
         let utterance = new SpeechSynthesisUtterance(this.state.words[this.state.arrayIndex][this.state.wordsIndex].word);
         utterance.voice = voices.find(voice => voice.name === 'Daniel');
         utterance.rate = 0.7;
         window.speechSynthesis.speak(utterance);
+        
     }
 
     handleChange = (event) => {
@@ -95,6 +98,7 @@ class PracticePage extends Component {
                                 <header><NavBar page='practice' year={this.props.match.params.year} category={this.props.category} username={this.props.username} />
                                     <NavBarCategories year={this.props.match.params.year} page='practice' category={this.props.category} username={this.props.username} />
                                    <Link to={`/year${this.props.match.params.year}/${this.props.category.toLowerCase()}/${this.props.match.params.letters}`}> <button id='goBack'><span id='practiseHighlight1'>{this.state.label}</span>:<span id='practiseHighlight2'>{`"${this.props.match.params.letters}"`}</span></button></Link>
+                                  <FlashWord show={this.state.show} word={this.state.words[this.state.arrayIndex][this.state.wordsIndex].word}/>
                                 </header>
                                 {
                                     notYear(this.state.years, this.props.match.params.year) ?
