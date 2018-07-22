@@ -5,7 +5,6 @@ import '../styling/components/FlashWord.css'
 const FlashWord = ({show, word}) => {
   const componentClasses = ['flashWord'];
   if (show) { componentClasses.push('show'); }
-  console.log('componentClasses', componentClasses.join('-'))
   return (
     <span className={componentClasses.join('-')}>{word}</span>
   );
