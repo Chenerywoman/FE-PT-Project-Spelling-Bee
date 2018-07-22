@@ -1,3 +1,12 @@
 #partialspage_container {
     margin: 2%;
 }
+
+#partial-heading {
+    text-decoration: underline;
+}
+
+#partial-instruction {
+
+    color: blue;
+}
