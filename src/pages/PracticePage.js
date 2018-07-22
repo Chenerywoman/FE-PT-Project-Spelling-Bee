@@ -79,10 +79,10 @@ class PracticePage extends Component {
         this.getWords(this.props.category, this.props.match.params.letters)
             .then(() => {
             if ('speechSynthesis' in window) {
-                return window.speechSynthesis.onvoiceschanged = this.voicesLoaded
+                return window.speechSynthesis.onvoiceschanged = this.voicesLoaded()
             } 
         })
-
+    
     }
 
     componentDidUpdate(prevProps, prevState) {
