@@ -8,3 +8,23 @@
 
     color: red
 }
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    /* font-size: 1.5 rem; */
+}
+
+td, th{
+border: 1px solid darkblue;
+padding: 15px;
+text-align: left;
+}
+
+.table-heading {
+    color: darkblue;
+}
+
+#score {
+    /* font-size: 1.5 rem; */
+}
