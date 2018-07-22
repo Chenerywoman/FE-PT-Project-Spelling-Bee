@@ -40,11 +40,13 @@ class PracticePage extends Component {
 
     handleSpellClick = () => {
         this.setState({ show: true });
+        if (this.state.voices === true) {
         const voices = window.speechSynthesis.getVoices()
         let utterance = new SpeechSynthesisUtterance(this.state.words[this.state.arrayIndex][this.state.wordsIndex].word);
         utterance.voice = voices.find(voice => voice.name === 'Daniel');
         utterance.rate = 0.7;
         window.speechSynthesis.speak(utterance);
+        }
         setTimeout(() => this.setState({ show: false }), 2000);
     }
 
@@ -75,7 +77,11 @@ class PracticePage extends Component {
 
     componentDidMount() {
         this.getWords(this.props.category, this.props.match.params.letters)
-            .then(() => window.speechSynthesis.onvoiceschanged = this.voicesLoaded)
+            .then(() => {
+            if ('speechSynthesis' in window) {
+                return window.speechSynthesis.onvoiceschanged = this.voicesLoaded
+            } 
+        })
 
     }
 
@@ -111,7 +117,7 @@ class PracticePage extends Component {
                                                 <input id='inputSpelling' type="text" placeholder="type your spelling here" value={this.state.spelling} onChange={this.handleChange} />
                                                 <input id='checkSpelling' type="submit" value="Check spelling" disabled={!this.state.spelling || this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false} />
                                             </form>
-                                            <button id='playbutton' onClick={this.handleSpellClick} disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false}>Play word</button>
+                                            <button id='playbutton' onClick={this.handleSpellClick} disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false}>{this.state.voices ? 'Play word' : 'No audio'}</button>
 
                                             {this.state.spellings.length ?
                                                 <SpellingBox spellings={this.state.spellings} correctSpellings={this.state.words[this.state.arrayIndex]} year={this.props.match.params.year} category={this.props.category} />
