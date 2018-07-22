@@ -44,7 +44,7 @@ class PracticePage extends Component {
         utterance.voice = voices.find(voice => voice.name === 'Daniel');
         utterance.rate = 0.7;
         window.speechSynthesis.speak(utterance);
-        
+        setTimeout(() => this.setState({show: false}), 2000);   
     }
 
     handleChange = (event) => {
