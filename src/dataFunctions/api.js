@@ -1,4 +1,4 @@
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = 'https://mighty-hollows-41094.herokuapp.com/api'
 
 export const findYears = () => {
     const url = `${API_URL}/years`
