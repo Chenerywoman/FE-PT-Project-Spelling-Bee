@@ -114,7 +114,7 @@ class PracticePage extends Component {
                                         <React.Fragment>
                                             <ContentBox page='practicepage' description={`${this.props.username}, click the buttons to practise your spellings 5 words at a time.`} />
                                             <form style={{ display: 'inline' }} onSubmit={this.handleSubmit}  >
-                                                <input id='inputSpelling' type="text" placeholder="type your spelling here" value={this.state.spelling} onChange={this.handleChange} />
+                                                <input id='inputSpelling' type="text" placeholder="type your spelling here" value={this.state.spelling} onChange={this.handleChange} autocomplete='off'/>
                                                 <input id='checkSpelling' type="submit" value="Check spelling" disabled={!this.state.spelling || this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false} />
                                             </form>
                                             <button id='playbutton' onClick={this.handleSpellClick} disabled={this.state.wordsIndex === this.state.words[this.state.arrayIndex].length ? true : false}>{this.state.voices ? 'Play word' : 'Flash word'}</button>
