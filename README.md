@@ -1,8 +1,8 @@
-# Spelling Bee  FrontEnd
+# Spelling Bee FrontEnd
 
-https://mighty-hollows-41094.herokuapp.com/api
+https://spelling-bee-frontend.herokuapp.com/
 
-Spelling Bee is a javascript project which uses data from the UK Education department national curriculum. Briefly, the data includes list of words which children in years 3 & 4 (Key Stage 2) are expected to learn to spell.  It is a RESTful express API which responds to different HTTP requests to various /api endpoints with (arrays of) JSON objects containing school years, categories, and words. It uses the Express npm package in the Node environment to run a server which connects to a MongoDB database using the Mongoose library.  The database connected to is either new_spelling_bee or new_spelling_bee_test, depending on whether the project is running in the test or dev environment.  
+Spelling Bee FrontEnd is a project using javascript, React and CSS. It is a single page application with various views which each fetch data from the Spelling Bee BackEnd /api endpoints.  The homepage view fetches school years, each yearpage view fetches categories, categories pages views fetch lists of either partials (groups of letters which are e.g. prefixes) or lists of words. Individual partial pages fetch lists of words which contain the partial, e.g. words ending in the suffix 'ing' (beginning, forgetting etc).  )(Please note, at the time of writing, data is only available for years 3 & 4). In the practice view, a user can click a button to hear the word spoken and briefly appear on the screen.  The user can then type their spelling into a form and their spelling will appear underneath the form with correct letters in blue, incorrect letters in red. If the whole word is correct, a green tick appears.  If the spelling is incorrect the correct word appears alongside the spelling.
 
 ## Getting Started
 
@@ -14,19 +14,15 @@ These instructions will get you a copy of the project up and running on your loc
 
 2.  NPM (Node Package Manager)
 
-3.  MongoDB 
-
-4.  Mongoose
-
 ### Installing
 
-Below is a step by step guide on how to get the server running in a development environment.
+Below is a step by step guide on how to get the app running in a development environment.
 
 #### 1. Download the project from Github
 1. On the command line, from the folder where you wish to store the repository, enter:
 
 ```bash
-git clone https://github.com/Chenerywoman/BE-PT-Project-Spelling-Bee
+git clone https://github.com/Chenerywoman/FE-PT-Project-Spelling-Bee
 ```
 
 2. Fork the project from Github by clicking on the Fork button on the top right-hand side of the screen.
@@ -51,83 +47,50 @@ node -v
 npm -v
 ```
 
-#### 4. Install MongoDB
-
-1. Follow the instructions to install MongoDB https://docs.mongodb.com/manual/installation/
-
 #### 5. Run NPM install
 
-1. To install all the necessary npm packages (including Mongoose) to run the project, run this command in your terminal from the root of your project:
+1. To install all the necessary npm packages to run the project, run this command in your terminal from the root of your project:
 
 ```bash 
 npm install
 ```
 
-#### 6. Set up a config folder
+#### 6. Set up a .env file
 
-1. Set up a config folder in the root of the project
-
-```bash 
-mkdir config
-```
-
-2. Make 3 files in the config folder: dev.js, test.js & index.js. Index.js refers to one of the other 2 files, depending on whether process.env.NODE_ENV is set to 'test' or 'dev'.
+1. Set up a .env file in the root of the project
 
 ```bash 
-touch dev.js
-``` 
+touch .env
+```
+2. Add the following code to the .env file:
 
-3. Add the following code to each of the files:
-
-**index.js**
+**either** (if using the hosted Spelling Bee backend )
 ```js
-module.exports = require(`./${process.env.NODE_ENV}.js`);
+REACT_APP_API_URL=https://mighty-hollows-41094.herokuapp.com/api
 ```
 
-**test.js**
+**or** (if using the Spelling Bee backend project on your local machine)
 ```js
-module.exports = 'mongodb://localhost:27017/new_spelling_bee_test';
-```
-
-**dev.js**
-```js
-module.exports = 'mongodb://localhost:27017/new_spelling_bee';
+module.exports = 'http://localhost:3000/api';
 ```
 
 #### 7. Use NPM scripts to run the project
 
-The following scripts (from the package.json scripts section) can be used in the command line to run the project:
+The following script (from the package.json scripts section) can be used in the command line to run the project:
 
-  * To seed the dev version of the database: 
+  * To launch the project in a web browser: 
   ```bash 
-  npm run seedDev
+  npm start
   ```
 
-  * To run the server: 
+  * In the browser:
   ```bash
-  npm run dev
+    http://localhost:3001 
   ```
-
-Once the database has been seeded and the server is up and running, it should respond to each of the endpoints listed at /api.
-
-## Running the tests
-
-The test file for the project is ./spec/main.spec.js
-
-To seed the test database & run the tests 
-```bash 
-npm test
-```
-
-#### Break down into end to end tests
-
-The tests use mocha, chai & supertest.  
-
-The main.spec.js has one main 'API endpoints' describe block which contains 4 further describe blocks for each of years, categories, words, prefixes, suffixes, medials & freestyle.  It tests all the endpoints for their respective GET, PUT, POST & DELETE requests.  It also tests error-handling for each route.
 
 ## Built With
+Create React App (https://github.com/facebookincubator/create-react-app)
 Node: version 9.9.0
-MongoDB: version 3.4.10
 NPM: 5.6.0
 
 ## Authors
