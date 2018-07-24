@@ -2,7 +2,7 @@
 
 https://spelling-bee-frontend.herokuapp.com/
 
-Spelling Bee FrontEnd is a project using javascript, React and CSS. It is a single page application with various views which each fetch data from the Spelling Bee BackEnd /api endpoints.  The homepage view fetches school years, each yearpage view fetches categories, categories pages views fetch lists of either partials (groups of letters which are e.g. prefixes) or lists of words. Individual partial pages fetch lists of words which contain the partial, e.g. words ending in the suffix 'ing' (beginning, forgetting etc).  )(Please note, at the time of writing, data is only available for years 3 & 4). In the practice view, a user can click a button to hear the word spoken and briefly appear on the screen.  The user can then type their spelling into a form and their spelling will appear underneath the form with correct letters in blue, incorrect letters in red. If the whole word is correct, a green tick appears.  If the spelling is incorrect the correct word appears alongside the spelling.
+Spelling Bee FrontEnd is a project using javascript, React and CSS. It is a single page application with various views which each fetch data from the Spelling Bee BackEnd /api endpoints.  The homepage view fetches school years, each yearpage view fetches categories, categories views fetch lists of either partials (groups of letters e.g. prefixes) or lists of words. Individual partial pages fetch lists of words which contain the partial, e.g. words ending in the suffix 'ing' (beginning, forgetting etc). (Please note, at the time of writing, data is only available for years 3 & 4). In the practice view, a user can click a button to hear the word spoken and briefly appear on the screen.  The user can then type their spelling into a form and their spelling will appear underneath the form with correct letters in blue, incorrect letters in red. If the whole word is correct, a green tick appears.  If the spelling is incorrect the correct word appears alongside the spelling.
 
 ## Getting Started
 
@@ -89,7 +89,8 @@ The following script (from the package.json scripts section) can be used in the 
   ```
 
 ## Built With
-Create React App (https://github.com/facebookincubator/create-react-app)
+
+Create React App [(https://github.com/facebookincubator/create-react-app)]
 Node: version 9.9.0
 NPM: 5.6.0
 
