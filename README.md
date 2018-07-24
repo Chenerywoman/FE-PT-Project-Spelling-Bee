@@ -90,8 +90,10 @@ The following script (from the package.json scripts section) can be used in the 
 
 ## Built With
 
-Create React App [(https://github.com/facebookincubator/create-react-app)]
+Create React App (https://github.com/facebookincubator/create-react-app)
+
 Node: version 9.9.0
+
 NPM: 5.6.0
 
 ## Authors
