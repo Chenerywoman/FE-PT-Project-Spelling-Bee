@@ -6,6 +6,7 @@ import { ContentBox, List, NavBar, NavBarCategories } from '../components';
 import '../styling/pages/WordsPage.css';
 import { findCategory, findList } from '../dataFunctions/api';
 import { notYear } from '../dataFunctions/helpers';
+import {homophonesMaker} from '../dataFunctions/helpers';
 
 class WordsPage extends Component {
 
@@ -24,7 +25,13 @@ class WordsPage extends Component {
                 this.setState({ type })
                 return findList(this.state.type.name)
             })
-            .then(res => this.setState({ list: res[this.state.type.name], loading: false }))
+            .then(res => {
+                if (this.props.category === 'Homophones'){
+                    const homophonesList = homophonesMaker();
+                    this.setState({ list: homophonesList, loading: false})
+                } else  {this.setState({ list: res[this.state.type.name], loading: false })}
+            }
+            )
             .catch(err => this.props.history.push('/404'))
     }
 
