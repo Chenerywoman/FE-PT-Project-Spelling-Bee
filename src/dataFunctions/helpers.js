@@ -29,3 +29,16 @@ export const checkSpelling = (spelling, correctSpelling) => {
     })
 
 }
+
+export const homophonesMaker = () => {
+
+ const homophones = ['accept', 'except', 'affect', 'effect', 'ball', 'bawl', 'berry', 'bury', 'brake', 'break', 'fair', 'fare', 'grate', 'great', 'grown', 'groan','here', 'hear', 'heel', 'heal', 'heal', 'he"ll', 'he"ll': 'heel', 'knot', 'not', 'mail', 'male', 'main', 'mane', 'meat', 'meet', 'medal', 'meddle', 
+ 'missed', 'mist', 'peace', 'piece', 'plain', 'plane', 'rain', 'rein', 'rein', 'reign', 'reign', 'rain','scene', 'seen', 'weather', 'whether', 'whose', 'who"s']
+
+const homophonesObjects =  homophones.map((word, ind) => {
+    return {_id: ind, word}
+})
+
+return homophonesObjects;
+
+}
